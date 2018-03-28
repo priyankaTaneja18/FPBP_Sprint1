@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html ng-app="donorApp" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>FOR PEOPLE BY PEOPLE</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+
+        <!-- Bootsrap -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+        <!-- Owl carousel -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.css">
+
+        <!-- Template main Css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/categorytablestyle.css">
+        <!-- Modernizr -->
+       <!--  <script src="assets/js/modernizr-2.6.2.min.js"></script> -->
+
+    </head>
+	
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+<script src="assets/js/donorController.js"></script>
+
+    <body ng-controller="donorController">
+	<div ng-init="load()">
+  	</div>
+	
+    <header class="main-header">
+        
+    
+        <nav class="navbar navbar-static-top">
+
+            <div class="navbar-top">
+
+              <div class="container">
+                  <div class="row">
+
+                    <div class="col-sm-6 col-xs-12">
+
+                        <ul class="list-unstyled list-inline header-contact">
+                            <li> <i class="fa fa-phone"></i> <a href="tel:">+980 980 9800 </a> </li>
+                             <li> <i class="fa fa-envelope"></i> <a href="mailto:contact@fpbp.org">contact@fpbp.org</a> </li>
+                       </ul> <!-- /.header-contact  -->
+                      
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12 text-right">
+
+                        <!-- <ul class="list-unstyled list-inline header-social">
+
+                            <li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
+                            <li> <a href="#"> <i class="fa fa-twitter"></i>  </a> </li>
+                            <li> <a href="#"> <i class="fa fa-google"></i>  </a> </li>
+                            <li> <a href="#"> <i class="fa fa-youtube"></i>  </a> </li>
+                            <li> <a href="#"> <i class="fa fa fa-pinterest-p"></i>  </a> </li>
+                       </ul> /.header-social 
+ -->                      
+                    </div>
+
+
+                  </div>
+              </div>
+
+            </div>
+
+            <div class="navbar-main" >
+              
+              <div class="container">
+
+                <div class="navbar-header" >
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                  </button>
+                  
+                  <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="" width="150dp" height="100dp"></a>
+                  <a class="navbar-brand" >For People By People</a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse pull-right">
+
+                  <ul class="nav navbar-nav">
+
+                    <li><a class="is-active" href="index.html">HOME</a></li>
+                    <!-- <li><a href="about.html">ABOUT</a></li>
+                     <li class="has-child"><a href="#">CAUSES</a>
+
+                      <ul class="submenu">
+                         <li class="submenu-item"><a href="causes.html">Causes list </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                      </ul>
+
+                    </li> 
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+ -->
+                  </ul>
+
+                </div> <!-- /#navbar -->
+
+              </div> <!-- /.container -->
+              
+            </div> <!-- /.navbar-main -->
+
+
+        </nav> 
+
+    </header> <!-- /. main-header -->
+
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
+
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#homeCarousel" data-slide-to="1"></li>
+            <li data-target="#homeCarousel" data-slide-to="2"></li>
+          </ol>
+
+          <div class="carousel-inner" role="listbox">
+
+            <div class="item active">
+
+           
+              <div class="container">
+
+                
+
+              </div>
+
+            </div> <!-- /.item -->
+
+
+            
+    </div><!-- /.carousel -->
+
+   <!--  <div class="section-home about-us fadeIn animated">
+
+        <div class="container"> -->
+<br>
+<br>
+<br>
+<table>
+<tr>
+<td>
+             <div align="left">     
+                 <table  class="needHelp-table needHelp-table-horizontal needHelp-table-highlight">
+    			
+    <tbody >
+        <tr  ng-repeat="n in donorCategorylists" ng-class="{ 'selected':n==url}" >									
+		<td><a  id="{{n}}"  >{{n}}</a></td>
+		</tr>
+		
+    </tbody>
+</table>
+		
+</div>
+</td>
+<td>
+<div>
+  <div ng-repeat="n in lists" style="border:solid; width: 100%; height:100%" >
+  
+	<table>
+	<tr>
+	<td ><b>Name</b></td><td>{{n.orgName}}</td>
+	</tr>
+	<tr>
+	<td><b>Address</b></td><td>{{n.address}}</td>
+	</tr>
+	<tr>
+	<td><b>Contact Nbr</b></td><td>{{n.contactNo}}</td>
+	</tr>
+	<tr>
+	<td><b>Website</b></td><td>{{n.website}}</td>
+	</tr>
+	<tr>
+	<td><b>Email</b></td><td>{{n.email}}</td>
+	</tr>
+	<tr>
+	<td><b>Requirement</b></td><td>{{n.requirement}}</td>
+	</tr>
+	<tr>
+	<td><b>Quantity</b></td><td>{{n.quantity}}</td>
+	</tr>
+	</table>  
+  </div>
+  </div>
+
+</td>
+</tr>
+ </table>         
+
+    <!--  Scripts
+    ================================================== -->
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Bootsrap javascript file -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    
+    <!-- owl carouseljavascript file -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+
+    <!-- Template main javascript -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    </body>
+</html>

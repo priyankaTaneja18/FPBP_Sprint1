@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+
+.needHelp-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+    width: 600dp;
+}
+.needHelp-table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff;
+    width: 600dp;
+   
+}
+.needHelp-table tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+     width: 600dp;
+    
+}
+.bgblue{
+    background-color: #CCE7E7;
+}
+.selected {
+	background-color:#CCE7E7;
+	font-weight:bold;
+}
+
+.needHelp-table-horizontal tbody td {
+    border-left: none;
+    border-right: none;
+}
+
+.
