@@ -6,14 +6,8 @@ import com.fpbp.model.Donor;
 
 public interface IDonorService {
 
-	List<Donor> foodDonor();
+	List<Donor> fetchSeekers(String category);
 
-	List<Donor> HousingDonor();
-
-	List<Donor> ClothingDonor();
-
-	List<Donor> EducationDonor();
-
-	List<Donor> FinancialDonor();
+	
 
 }

@@ -7,13 +7,7 @@ import com.fpbp.model.Donor;
 
 public interface DonorDAO {
 
-	List<Donor> foodDonor();
+	List<Donor> fetchSeekers(String category);
 
-	List<Donor> FinancialDonor();
 
-	List<Donor> EducationDonor();
-
-	List<Donor> ClothingDonor();
-
-	List<Donor> HousingDonor();
 }

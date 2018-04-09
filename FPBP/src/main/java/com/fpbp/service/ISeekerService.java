@@ -6,14 +6,8 @@ import com.fpbp.model.Seeker;
 
 public interface ISeekerService {
 
-	List<Seeker> foodProviders();
+	List<Seeker> fetchProviders(String category);
 
-	List<Seeker> housingProviders();
-
-	List<Seeker> clothingProviders();
-
-	List<Seeker> educationProviders();
-
-	List<Seeker> moneyProviders();
+	
 
 }

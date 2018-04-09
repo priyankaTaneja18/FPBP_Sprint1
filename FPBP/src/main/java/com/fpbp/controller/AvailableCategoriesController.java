@@ -16,16 +16,8 @@ public class AvailableCategoriesController {
 	@Autowired
 	IAvailableCategoriesService availableCategories;
 
-	@RequestMapping(value="/SeekHelp", method= RequestMethod.GET)
-	public List<String> seekHelpCategories(){
-		return availableCategories.seekHelpCategories();
+	@RequestMapping(value="/Category", method= RequestMethod.GET)
+	public List<String> findCategories(){
+		return availableCategories.findCategories();
 	}
-
-	@RequestMapping(value="/Donate", method= RequestMethod.GET)
-	public List<String> donateHelpCategories(){
-		return availableCategories.donateHelpCategories();
-	}	
-
-
-
 }

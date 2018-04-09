@@ -22,80 +22,15 @@ public class SeekerServiceTest {
 				,"www.help.com"));	
 		SeekerDAO s= mock(SeekerDAO.class);	
 		//Given
-		given(s.foodProviders()).willReturn(ls);
+		given(s.fetchProviders("Food")).willReturn(ls);
 		//When
 		ISeekerService st= new SeekerService(s);
-		List<Seeker> data= st.foodProviders();
-		//Then
-		
-		assertThat(data.size(), is(1));
-	}
-	
-	
-	@Test
-	public void housingProvidersTest() {
-		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("abc","9547 UTD","987-456-9876","abc@wer.com","9:00 AM- 5:00 PM"
-				,"www.help.com"));	
-		SeekerDAO s= mock(SeekerDAO.class);	
-		//Given
-		given(s.housingProviders()).willReturn(ls);
-		//When
-		ISeekerService st= new SeekerService(s);
-		List<Seeker> data= st.housingProviders();
+		List<Seeker> data= st.fetchProviders("Food");
 		//Then
 		
 		assertThat(data.size(), is(1));
 	}
 	
 
-	@Test
-	public void clothingProvidersTest() {
-		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("abc","9547 UTD","987-456-9876","abc@wer.com","9:00 AM- 5:00 PM"
-				,"www.help.com"));	
-		SeekerDAO s= mock(SeekerDAO.class);	
-		//Given
-		given(s.clothingProviders()).willReturn(ls);
-		//When
-		ISeekerService st= new SeekerService(s);
-		List<Seeker> data= st.clothingProviders();
-		//Then
-		
-		assertThat(data.size(), is(1));
-	}
-	
-	@Test
-	public void educationProvidersTest() {
-		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("abc","9547 UTD","987-456-9876","abc@wer.com","9:00 AM- 5:00 PM"
-				,"www.help.com"));	
-		SeekerDAO s= mock(SeekerDAO.class);	
-		//Given
-		given(s.educationProviders()).willReturn(ls);
-		//When
-		ISeekerService st= new SeekerService(s);
-		List<Seeker> data= st.educationProviders();
-		//Then
-		
-		assertThat(data.size(), is(1));
-	}
-	
-	@Test
-	public void moneyProvidersTest() {
-		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("abc","9547 UTD","987-456-9876","abc@wer.com","9:00 AM- 5:00 PM"
-				,"www.help.com"));	
-		SeekerDAO s= mock(SeekerDAO.class);	
-		//Given
-		given(s.moneyProviders()).willReturn(ls);
-		//When
-		ISeekerService st= new SeekerService(s);
-		List<Seeker> data= st.moneyProviders();
-		//Then
-		
-		assertThat(data.size(), is(1));
-	}
-	
 	
 }

@@ -29,47 +29,15 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 		setDataSource(dataSource);
 	}
 
-	public List<Donor> foodDonor() {
+	public List<Donor> fetchSeekers(String category) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM donate_food";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
+		String sql = "SELECT * FROM helpSeeker where Category=?";
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, new Object[] {category});        
 		result = new ArrayList<Donor>();
 		return setDonor(rows);
 	}
 
-	public List<Donor> FinancialDonor() {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM donate_money";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
-		result = new ArrayList<Donor>();
-		return setDonor(rows);		       
-	}
 
-	public List<Donor> EducationDonor() {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM donate_education";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
-		result = new ArrayList<Donor>();
-		return setDonor(rows);
-	}
-
-	public List<Donor> ClothingDonor() {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM donate_clothing";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
-		result = new ArrayList<Donor>();
-		return setDonor(rows);
-
-	}
-
-	public List<Donor> HousingDonor() {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM donate_housing";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
-		result = new ArrayList<Donor>();
-		return setDonor(rows);
-
-	}
 
 	private List<Donor> setDonor(List<Map<String, Object>> rows)
 	{

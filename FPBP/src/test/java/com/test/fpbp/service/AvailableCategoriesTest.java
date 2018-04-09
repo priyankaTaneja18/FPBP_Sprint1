@@ -17,34 +17,20 @@ public class AvailableCategoriesTest {
 	
 
 	@Test
-	public void seekHelpCategoriesTest() {
+	public void CategoriesTest() {
 		List<String> ls=new ArrayList<String>();
 		ls.add(new String("Food"));	
 		AvailableCategoriesDAO s= mock(AvailableCategoriesDAO.class);	
 		//Given
-		given(s.seekHelpCategories()).willReturn(ls);
+		given(s.findCategories()).willReturn(ls);
 		//When
 		IAvailableCategoriesService st= new AvailableCategoriesService(s);
-		List<String> data= st.seekHelpCategories();
+		List<String> data= st.findCategories();
 		//Then
 		
 		assertThat(data.size(), is(1));
 	}
 	
 
-	@Test
-	public void donateHelpCategoriesTest() {
-		List<String> ls=new ArrayList<String>();
-		ls.add(new String("Clothing"));	
-		AvailableCategoriesDAO s= mock(AvailableCategoriesDAO.class);	
-		//Given
-		given(s.donateHelpCategories()).willReturn(ls);
-		//When
-		IAvailableCategoriesService st= new AvailableCategoriesService(s);
-		List<String> data= st.donateHelpCategories();
-		//Then
-		
-		assertThat(data.size(), is(1));
-	}
 	
 }

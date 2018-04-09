@@ -21,31 +21,10 @@ public class SeekerService implements ISeekerService {
     }
     
 	
-	public List<Seeker> foodProviders() {
-		return seekerDAO.foodProviders();
+	public List<Seeker> fetchProviders(String category) {
+		return seekerDAO.fetchProviders(category);
 	}
 
 
-	public List<Seeker> housingProviders() {
-		// TODO Auto-generated method stub
-		return seekerDAO.housingProviders();
-	}
-
-
-	public List<Seeker> clothingProviders() {
-		// TODO Auto-generated method stub
-		return seekerDAO.clothingProviders();
-	}
-
-
-	public List<Seeker> educationProviders() {
-		// TODO Auto-generated method stub
-		return seekerDAO.educationProviders();
-	}
-
-
-	public List<Seeker> moneyProviders() {
-		// TODO Auto-generated method stub
-		return seekerDAO.moneyProviders();
-	}	
+	
 }

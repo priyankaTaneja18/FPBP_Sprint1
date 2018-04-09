@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IAvailableCategoriesService {
 
-	List<String> seekHelpCategories();
-	List<String> donateHelpCategories();
+	List<String> findCategories();
+	
 
 }

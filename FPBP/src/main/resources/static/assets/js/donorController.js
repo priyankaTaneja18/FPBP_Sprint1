@@ -3,7 +3,7 @@ app.controller("donorController", function($scope,$http,$location){
 	
 	$scope.load=function(){
 		
-		$http.get('/AvailableCategories/Donate').then(function(response) {       
+		$http.get('/AvailableCategories/Category').then(function(response) {       
 			$scope.donorCategorylists=response.data;
 			
 			});
@@ -14,7 +14,7 @@ app.controller("donorController", function($scope,$http,$location){
 		$scope.url=category;
 		
 		$scope.inside=true;
-			$http.get('/AvailableCategories/'+category+'Donor').then(function(response) {       
+			$http.get('/AvailableCategories/Provider?category='+category).then(function(response) {       
 				$scope.lists=response.data;
 				
 				});

@@ -19,11 +19,9 @@ public class AvailableCategoriesService implements IAvailableCategoriesService {
         this.availableCategoriesDAO=availableCategoriesDAO;
     }
     
-    public List<String> seekHelpCategories(){
-   	 return availableCategoriesDAO.seekHelpCategories();
+    public List<String> findCategories(){
+   	 return availableCategoriesDAO.findCategories();
    	}
    	
-   	public List<String> donateHelpCategories(){
-   		 return availableCategoriesDAO.donateHelpCategories();
-   	}	
+   	
 }

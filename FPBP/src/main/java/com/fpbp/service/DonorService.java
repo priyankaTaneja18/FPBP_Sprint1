@@ -21,31 +21,9 @@ public class DonorService implements IDonorService {
     }
     
 	
-	public List<Donor> foodDonor() {
-		return donorDAO.foodDonor();
+	public List<Donor> fetchSeekers(String category) {
+		return donorDAO.fetchSeekers(category);
 	}
 
 
-	public List<Donor> HousingDonor() {
-		// TODO Auto-generated method stub
-		return donorDAO.HousingDonor();
-	}
-
-
-	public List<Donor> ClothingDonor() {
-		// TODO Auto-generated method stub
-		return donorDAO.ClothingDonor();
-	}
-
-
-	public List<Donor> EducationDonor() {
-		// TODO Auto-generated method stub
-		return donorDAO.EducationDonor();
-	}
-
-
-	public List<Donor> FinancialDonor() {
-		// TODO Auto-generated method stub
-		return donorDAO.FinancialDonor();
-	}	
 }

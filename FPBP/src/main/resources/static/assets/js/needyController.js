@@ -3,7 +3,7 @@ app.controller("needyController", function($scope,$http,$location){
 	
 	$scope.load=function(){
 		
-		$http.get('/AvailableCategories/SeekHelp').then(function(response) {       
+		$http.get('/AvailableCategories/Category').then(function(response) {       
 			$scope.seekCategorylists=response.data;
 			
 			});
@@ -14,7 +14,7 @@ app.controller("needyController", function($scope,$http,$location){
 	
 	$scope.url=category;
 	
-	$http.get('/AvailableCategories/'+category+'Seeker').then(function(response) {       
+	$http.get('/AvailableCategories/Seeker?category='+category).then(function(response) {       
 			$scope.lists=response.data;
 			
 			});

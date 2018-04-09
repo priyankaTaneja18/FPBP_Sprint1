@@ -27,25 +27,16 @@ public class AvailableCategoriesDAOImpl extends JdbcDaoSupport implements Availa
          setDataSource(dataSource);
      }
      
-	public List<String> seekHelpCategories() {
+     public List<String> findCategories() {
 	
-		 String sql = "SELECT seek_help FROM available_categories ";
+		 String sql = "SELECT * FROM available_categories ";
          List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
          List<String> result = new ArrayList<String>();
          for(Map<String, Object> row:rows){
-        	result.add((String) row.get("seek_help"));
+        	result.add((String) row.get("Category"));
          }
 		return result;
 	}
 
-	public List<String> donateHelpCategories() {
-		
-		 String sql = "SELECT donate FROM available_categories ";
-         List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
-         List<String> result = new ArrayList<String>();
-         for(Map<String, Object> row:rows){
-        	result.add((String) row.get("donate"));
-         }
-		return result;
-	}
+	
 }

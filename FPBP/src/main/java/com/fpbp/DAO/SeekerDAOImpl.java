@@ -30,49 +30,14 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 	}
 	private List<Seeker> result;
 
-	public List<Seeker> foodProviders() {
-		String sql = "SELECT * FROM seek_food ";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
+	public List<Seeker> fetchProviders(String category) {
+		String sql = "SELECT * FROM helpProvider where Category=?" ;
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, new Object[] {category});
+				        
 		result = new ArrayList<Seeker>();
 		return setSeeker(rows);
 	}
 
-
-	public List<Seeker> housingProviders() {
-		String sql = "SELECT * FROM seek_housing ";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);        
-		result = new ArrayList<Seeker>();
-		return setSeeker(rows);
-	}
-
-
-	public List<Seeker> clothingProviders() {
-		String sql = "SELECT * FROM seek_clothing ";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
-		result = new ArrayList<Seeker>();
-		return setSeeker(rows);
-
-	}
-
-
-	public List<Seeker> educationProviders() {
-		String sql = "SELECT * FROM seek_education ";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);  
-		result = new ArrayList<Seeker>();
-		return setSeeker(rows);
-
-	}
-
-
-	public List<Seeker> moneyProviders() {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM seek_money ";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);   
-		result = new ArrayList<Seeker>();
-		return setSeeker(rows);
-
-
-	}
 
 	private List<Seeker> setSeeker(List<Map<String, Object>> rows)
 	{
@@ -83,7 +48,7 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 			seeker.setContactNo(((String)row.get("contact")));
 			seeker.setEmail((String)row.get("email"));
 			seeker.setHoursOfOperation((String)row.get("hours_of_operation"));
-			seeker.setWebsite((String)row.get("webite"));
+			seeker.setWebsite((String)row.get("website"));
 			result.add(seeker);
 		}
 		return result;

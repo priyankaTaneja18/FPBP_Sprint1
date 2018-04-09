@@ -138,11 +138,11 @@
 							<a href="#"
 								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
 								data-toggle="modal" data-target="#donateModal"
-								ng-click="wannaHelpCategory()">I want to help</a>
+								ng-click="Category()">I want to help</a>
 							<a href="#"
 								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
 								data-toggle="modal" data-target="#helpModal"
-								ng-click="seekHelpCategory()">I need help</a>
+								ng-click="Category()">I need help</a>
 						</div>
 						<!-- /.carousel-caption -->
 
@@ -167,10 +167,10 @@
 							<a href="#"
 								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
 								data-toggle="modal" data-target="#donateModal"
-								ng-click="wannaHelpCategory()">I want to help</a> <a href="#"
+								ng-click="Category()">I want to help</a> <a href="#"
 								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
 								data-toggle="modal" data-target="#helpModal"
-								ng-click="seekHelpCategory()">I need help</a>
+								ng-click="Category()">I need help</a>
 
 						</div>
 						<!-- /.carousel-caption -->
@@ -196,11 +196,11 @@
 							<a href="#"
 								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
 								data-toggle="modal" data-target="#donateModal"
-								ng-click="wannaHelpCategory()">I want to help</a>
+								ng-click="Category()">I want to help</a>
 							<a href="#"
 								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
 								data-toggle="modal" data-target="#helpModal"
-								ng-click="seekHelpCategory()">I need help</a>
+								ng-click="Category()">I need help</a>
 
 						</div>
 						<!-- /.carousel-caption -->
@@ -251,7 +251,7 @@
 									class="needHelp-table needHelp-table-horizontal needHelp-table-highlight">
 
 									<tbody>
-										<tr ng-repeat="n in seekCategorylists">
+										<tr ng-repeat="n in categorylists">
 											<td><a ng-href="{{'NeedHelp.html?'+n}}" >{{n}}</a></td>
 
 										</tr>
@@ -294,7 +294,7 @@
 									class="needHelp-table needHelp-table-horizontal needHelp-table-highlight">
 
 									<tbody>
-										<tr ng-repeat="n in donorCategorylists">
+										<tr ng-repeat="n in categorylists">
 											
 											<td><a ng-href="{{'DonorPage.html?'+n}}" >{{n}}</a></td>
 											
