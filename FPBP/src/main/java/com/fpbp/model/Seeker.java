@@ -1,33 +1,33 @@
 package com.fpbp.model;
 
 public class Seeker {
-	private String name;
+	private String orgName;
 	private String address;
 	private String contactNo;
-	private String email;
-	private String hoursOfOperation;
 	private String website;
+	private String email;
+	private String requirement;
+	private int quantity;
 	
 	public Seeker() {
-		//super();
-	}
-	
-	public Seeker(String name, String address, String contactNo, String email, String hoursOfOperation,
-			String website) {
 		super();
-		this.name = name;
+	}
+	public Seeker(String orgName, String address, String contactNo, String website, String email, String requirement,
+			int quantity) {
+		this.orgName = orgName;
 		this.address = address;
 		this.contactNo = contactNo;
-		this.email = email;
-		this.hoursOfOperation = hoursOfOperation;
 		this.website = website;
+		this.email = email;
+		this.requirement = requirement;
+		this.quantity = quantity;
 	}
-	
-	public String getName() {
-		return name;
+
+	public String getOrgName() {
+		return orgName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
 	}
 	public String getAddress() {
 		return address;
@@ -41,25 +41,28 @@ public class Seeker {
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getHoursOfOperation() {
-		return hoursOfOperation;
-	}
-	public void setHoursOfOperation(String hoursOfOperation) {
-		this.hoursOfOperation = hoursOfOperation;
-	}
 	public String getWebsite() {
 		return website;
 	}
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-	
-	
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getRequirement() {
+		return requirement;
+	}
+	public void setRequirement(String requirement) {
+		this.requirement = requirement;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer integer) {
+		this.quantity = integer;
+	}
 }

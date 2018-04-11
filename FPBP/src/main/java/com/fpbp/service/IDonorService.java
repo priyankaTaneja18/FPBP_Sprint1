@@ -6,7 +6,7 @@ import com.fpbp.model.Donor;
 
 public interface IDonorService {
 
-	List<Donor> fetchSeekers(String category);
+	List<Donor> fetchProviders(String category);
 
 	
 

@@ -23,14 +23,17 @@
 
 <!-- Template main Css -->
 <link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/addForm.css">
 <link rel="stylesheet" href="assets/css/categorytablestyle.css">
 <!-- Modernizr -->
 <!--  <script src="assets/js/modernizr-2.6.2.min.js"></script> -->
 
 </head>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	
 <script src="assets/js/needyController.js"></script>
 <body ng-controller="needyController">
 
@@ -151,48 +154,39 @@
 
 		<div class="article"
 			style="padding: 50px; max-height: 550px; max-width: 100%; overflow-y: scroll;">
-			<div align="right">
-			Can't find what you are looking for??  <a href=" {{'/NeedHelpAddForm.html?'+url}} "><b>Click Here to Add</b></a></input>
-			your own requirement!!
-			</div>
-			<div ng-repeat="n in lists"
-				style="border: solid; padding: 10px; width: 100%;">
+			<h2> Add New Entry For {{url}}:</h2>
+			<div class="addContainer">
+  <form name="addEntryForm" ng-submit="submitForm()" >
+    <label for="name" >Name/Organization</label>
+    <input type="text" id="name" name="name" ng-model="seeker.name" placeholder="Your name or Organization name" required>
 
-				<table>
-					<tr>
-						<td><b>Name</b></td>
-						<td>{{n.name}}</td>
-					</tr>
-					<tr>
-						<td><b>Address</b></td>
-						<td>{{n.address}}</td>
-					</tr>
-					<tr>
-						<td><b>Contact Nbr</b></td>
-						<td>{{n.contactNo}}</td>
-					</tr>
-					<tr>
-						<td><b>Email</b></td>
-						<td>{{n.email}}</td>
-					</tr>
-					<tr>
-						<td><b>Hours Of Operation</b></td>
-						<td>{{n.hoursOfOperation}}</td>
-					</tr>
-					<tr>
-						<td><b>Website</b></td>
-						<td>{{n.website}}</td>
-					</tr>
-				</table>
-			</div>
-		</div>
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" ng-model="seeker.address" placeholder="Address.." required>
+	
+	<label for="contact">Contact Number</label>
+    <input type="number" id="contact" name="contact" ng-model="seeker.contact" placeholder="Phone Number.." required>
+    
+	<label for="Website">Website</label>
+    <input type="text" id="website" name="website" ng-model="seeker.website" placeholder="Website if any..">
+	
+	<label for="email">Email Id</label>
+    <input type="email" id="email" name="email" ng-model="seeker.email" placeholder="Email Id.." required>
 
-		</td>
-		</tr>
-		</table>
+	<label for="requirement">Requirement</label>
+    <input type="text" id="requirement" name="requirement" ng-model="seeker.requirement" placeholder="Your Need.." required>
+   
+	<label for="quantity">Quantity</label>
+    <input type="number" id="quantity" name="quantity" ng-model="seeker.quantity" placeholder="Quantity.." required>
+   
+    <input type="submit" value="Submit" >
+  </form>
+</div>
+		
 	</div>
 	</div>
-
+<div>
+msg={{successMsg}}
+</div>
 	<footer>Copyright &copy; W3Schools.com</footer>
 	</div>
 

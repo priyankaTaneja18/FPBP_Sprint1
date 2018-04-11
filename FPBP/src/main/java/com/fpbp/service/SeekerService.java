@@ -21,8 +21,8 @@ public class SeekerService implements ISeekerService {
     }
     
 	
-	public List<Seeker> fetchProviders(String category) {
-		return seekerDAO.fetchProviders(category);
+	public List<Seeker> fetchSeekers(String category) {
+		return seekerDAO.fetchSeekers(category);
 	}
 
 

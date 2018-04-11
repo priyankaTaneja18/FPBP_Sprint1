@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fpbp.model.Donor;
 import com.fpbp.service.IDonorService;
+import com.fpbp.service.ISeekerService;
 
 
 @RestController
 @RequestMapping("/AvailableCategories")
 public class DonorController {
 	
+
 	@Autowired
 	IDonorService donorService;
-	
-	@RequestMapping(value="/Provider", method= RequestMethod.GET)
-	public List<Donor> fetchSeekers(@RequestParam("category") String category){		
-		return donorService.fetchSeekers(category);
-	}
 
+	@RequestMapping(value="/Providers", method= RequestMethod.GET)
+	public List<Donor> fetchProviders(@RequestParam("category") String category){
+			System.out.println("$$$$$$$$"+category);
+		return donorService.fetchProviders(category);
+	}
 	
 
 }

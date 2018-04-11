@@ -7,7 +7,7 @@ import com.fpbp.model.Donor;
 
 public interface DonorDAO {
 
-	List<Donor> fetchSeekers(String category);
+	List<Donor> fetchProviders(String category);
 
 
 }

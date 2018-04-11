@@ -6,7 +6,7 @@ import com.fpbp.model.Seeker;
 
 public interface ISeekerService {
 
-	List<Seeker> fetchProviders(String category);
+	List<Seeker> fetchSeekers(String category);
 
 	
 

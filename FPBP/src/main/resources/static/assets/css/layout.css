@@ -1,14 +1,4 @@
-/*------------------------------------------------------------------------------------------------------------------------
- 
- @package: Sadaka
- @author: Ouarmedia/Farouk BLALOU
- @version: 1.0
- 
- --------------------------------------------------------------------------------------------------------------------- */
-
-/* =============================================================================
-  Base
-========================================================================== */
+@charset "ISO-8859-1";
 body {
   font-family: "Open sans", sans-serif;
   color: #115c9b;
@@ -27,12 +17,28 @@ a {
 a:hover, a:focus, a:active {
   color: inherit;
 }
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: left;
+}
 
-/* =============================================================================
-  Layout
-========================================================================== */
-/* Header 
-================================= */
+.flex-container > * {
+   
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+.article {
+    text-align: left;
+}
+
+
+footer {background: #aaa;color:white;}
+.nav {background:#F5F5F5;}
+
 
 .navbar-static-top {
   margin: 0;
@@ -123,55 +129,6 @@ a:hover, a:focus, a:active {
   background: #fff;
 }
 
-/* Home Slider 
-================================= */
-.carousel-home img {
-  width: 100%;
-}
-.carousel-home .carousel-control {
-  background: #1f76bd;
-  height: 80px;
-  width: 40px;
-  top: 50%;
-  margin-top: -40px;
-  -moz-transition: width, 0.3s;
-  -o-transition: width, 0.3s;
-  -webkit-transition: width, 0.3s;
-  transition: width, 0.3s;
-}
-.carousel-home .carousel-control .fa {
-  font-size: 2.5em;
-  padding-top: 12px;
-}
-.carousel-home .carousel-control:hover {
-  width: 50px;
-}
-.carousel-home .carousel-caption {
-  top: 50%;
-  bottom: auto;
-  transform: translateY(-50%);
-}
-.carousel-home .carousel-title {
-  color: #fff;
-  font-family: "Dosis", sans-serif;
-  font-size: 50px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.carousel-home .carousel-subtitle {
-  font-size: 25px;
-  text-transform: uppercase;
-}
-.carousel-home .btn {
-  margin-top: 30px;
-}
-
-.section-home {
-  margin: 30px 0;
-}
-
-/* home/ about-us 
-================================= */
 .about-us {
   margin: 30px 0;
 }
@@ -324,102 +281,7 @@ a:hover, a:focus, a:active {
   padding: 0 15px 5px;
 }
 
-/* footer 
-================================= */
-.footer-top {
-  background: #115c9b;
-  height: 40px;
-}
-
-.main-footer {
-  background: #1f76bd;
-  color: #fff;
-}
-.main-footer .footer-main {
-  padding: 30px 0;
-}
-.main-footer .footer-title {
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.main-footer .footer-title .title-under {
-  background: #fff;
-  margin: 15px 0;
-  text-align: left;
-}
-.main-footer .footer-title .title-under:after {
-  margin: 0;
-  background: #fff;
-}
-.main-footer .footer-content {
-  text-align: justify;
-  font-size: 13px;
-}
-.main-footer .tweet {
-  font-size: 13px;
-}
-.main-footer .tweet:after {
-  content: "";
-  height: 1px;
-  display: block;
-  background: #115c9b;
-  width: 150px;
-  margin: 15px auto;
-}
-.main-footer .tweet:last-child:after {
-  display: none;
-}
-
-.footer-bottom {
-  background: #115c9b;
-  padding: 3px;
-}
-
-.footer-form .form-group {
-  margin-bottom: 5px;
-}
-.footer-form .form-control {
-  background: #115c9b;
-  color: #fff;
-  border: 0;
-  border-radius: 0;
-  margin-bottom: 5px;
-  border: 1px solid #fff;
-  resize: none;
-}
-.footer-form .btn-submit {
-  border-radius: 0;
-  background: #115c9b;
-  text-transform: uppercase;
-  border: 1px solid #fff;
-  -moz-transition: all, 0.5s;
-  -o-transition: all, 0.5s;
-  -webkit-transition: all, 0.5s;
-  transition: all, 0.5s;
-}
-.footer-form .btn-submit:hover {
-  background: #fff;
-}
-.footer-form input:-moz-placeholder,
-.footer-form textarea:-moz-placeholder {
-  color: #fff;
-}
-.footer-form input::-moz-placeholder,
-.footer-form textarea::-moz-placeholder {
-  color: #fff;
-}
-.footer-form input:-ms-input-placeholder,
-.footer-form textarea:-ms-input-placeholder {
-  color: #fff;
-}
-.footer-form input::-webkit-input-placeholder,
-.footer-form textarea::-webkit-input-placeholder {
-  color: #fff;
-}
-
-/* Pages 
-================================= */
-.page-heading {
+page-heading {
   background: url('../images/heading-bg.jpg?1428795369') no-repeat center;
   background-size: cover;
   min-height: 190px;
@@ -561,41 +423,6 @@ form .alert {
   margin-top: 10px;
 }
 
-/* Modal
-================================= */
-.form-control {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* Tabeles
-================================= */
-.table-style-1 thead {
-  background: #1f76bd;
-  border-bottom: 1px solid #144d7b;
-  color: #fff;
-}
-.table-style-1 td,
-.table-style-1 th {
-  border-bottom: 1px solid #1f76bd;
-}
-
-.table-style-2 thead {
-  background: #115c9b;
-  border-bottom: 1px solid #144d7b;
-  color: #fff;
-}
-.table-style-2 tbody tr:nth-child(even) {
-  background: #1f76bd;
-  color: #fff;
-}
-.table-style-2 td,
-.table-style-2 th {
-  border-bottom: 1px solid #1f76bd;
-}
-
-/* Tabs
-================================= */
 .nav-tabs {
   border-bottom-color: #1f76bd;
   margin-bottom: 15px;
@@ -620,7 +447,6 @@ form .alert {
   background: #115c9b;
   color: #fff;
 }
-
 /* Accordion
 ================================= */
 .panel-default {
@@ -715,38 +541,6 @@ form .alert {
   -moz-transform: perspective(1.15) scale3d(1.15, 1.15, 1.15);
   -webkit-transform: perspective(1.15) scale3d(1.15, 1.15, 1.15);
   transform: perspective(1.15) scale3d(1.15, 1.15, 1.15);
-}
-
-/* Ow carousel
-================================= */
-.owl-next,
-.owl-prev {
-  width: 32px;
-  height: 32px;
-  padding-top: 5px;
-  border: 2px solid;
-  text-align: center;
-  border-radius: 50%;
-  left: 0;
-  position: absolute;
-  top: 50%;
-  margin-top: -16px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
-  opacity: 0.75;
-  -moz-transition: all, 0.5s;
-  -o-transition: all, 0.5s;
-  -webkit-transition: all, 0.5s;
-  transition: all, 0.5s;
-}
-.owl-next:hover,
-.owl-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-
-.owl-next {
-  left: auto;
-  right: 0;
 }
 
 /* =============================================================================
@@ -869,6 +663,7 @@ form .alert {
     bottom: 0;
   }
 }
+
 /* =============================================================================
 	Animations
 ========================================================================== */
@@ -1060,4 +855,11 @@ form .alert {
   animation-name: zoomIn;
 }
 
+
+
+@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1; max-width: 8%;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2; padding-left: 40px; max-width: 80%;}
+    footer {-webkit-order:3;order:3;}
+}
 

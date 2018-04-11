@@ -23,35 +23,35 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 	@Autowired 
 	DataSource dataSource;
 
-	private List<Donor> result;
 	@PostConstruct
 	private void initialize(){
 		setDataSource(dataSource);
 	}
+	private List<Donor> result;
 
-	public List<Donor> fetchSeekers(String category) {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM helpSeeker where Category=?";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, new Object[] {category});        
+	public List<Donor> fetchProviders(String category) {
+		String sql = "SELECT * FROM helpProvider where Category=?" ;
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, new Object[] {category});
+				        
 		result = new ArrayList<Donor>();
 		return setDonor(rows);
 	}
-
 
 
 	private List<Donor> setDonor(List<Map<String, Object>> rows)
 	{
 		for(Map<String, Object> row:rows){
 			Donor donor = new Donor();            
-			donor.setOrgName(((String)row.get("org_name")));
+			donor.setName(((String)row.get("name")));
 			donor.setAddress(((String)row.get("address")));
-			donor.setContactNo(((String)row.get("contact_no")));
-			donor.setWebsite((String)row.get("website"));
+			donor.setContactNo(((String)row.get("contact")));
 			donor.setEmail((String)row.get("email"));
-			donor.setRequirement((String)row.get("requirement"));
-			donor.setQuantity((Integer)row.get("quantity"));
+			donor.setHoursOfOperation((String)row.get("hours_of_operation"));
+			donor.setWebsite((String)row.get("website"));
 			result.add(donor);
 		}
 		return result;
 	}
+	
+	
 }

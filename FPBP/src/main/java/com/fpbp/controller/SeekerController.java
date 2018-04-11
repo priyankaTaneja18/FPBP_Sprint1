@@ -3,7 +3,6 @@ package com.fpbp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,11 +21,12 @@ public class SeekerController {
 	ISeekerService seekerService;
 
 	@RequestMapping(value="/Seeker", method= RequestMethod.GET)
-	public List<Seeker> fetchProviders(@RequestParam("category") String category){
+	public List<Seeker> fetchSeekers(@RequestParam("category") String category){
 			System.out.println("$$$$$$$$"+category);
-		return seekerService.fetchProviders(category);
+		return seekerService.fetchSeekers(category);
 	}
 
+	
 	
 
 }

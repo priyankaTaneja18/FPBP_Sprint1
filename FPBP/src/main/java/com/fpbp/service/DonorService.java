@@ -21,8 +21,8 @@ public class DonorService implements IDonorService {
     }
     
 	
-	public List<Donor> fetchSeekers(String category) {
-		return donorDAO.fetchSeekers(category);
+	public List<Donor> fetchProviders(String category) {
+		return donorDAO.fetchProviders(category);
 	}
 
 

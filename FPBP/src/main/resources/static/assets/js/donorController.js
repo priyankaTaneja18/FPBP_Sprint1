@@ -14,7 +14,7 @@ app.controller("donorController", function($scope,$http,$location){
 		$scope.url=category;
 		
 		$scope.inside=true;
-			$http.get('/AvailableCategories/Provider?category='+category).then(function(response) {       
+			$http.get('/AvailableCategories/Seeker?category='+category).then(function(response) {       
 				$scope.lists=response.data;
 				
 				});
