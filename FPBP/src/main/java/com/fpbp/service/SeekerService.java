@@ -25,6 +25,8 @@ public class SeekerService implements ISeekerService {
 		return seekerDAO.fetchSeekers(category);
 	}
 
-
+	public boolean addSeeker(Seeker s) {
+		return seekerDAO.addSeeker(s);
+	}
 	
 }

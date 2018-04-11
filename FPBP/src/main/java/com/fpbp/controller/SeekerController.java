@@ -3,6 +3,8 @@ package com.fpbp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +28,15 @@ public class SeekerController {
 		return seekerService.fetchSeekers(category);
 	}
 
-	
+	@RequestMapping(value="/AddSeekerRequirement",consumes = MediaType.APPLICATION_JSON_VALUE, method= RequestMethod.POST)
+	public String addSeeker(@RequestBody Seeker s) {
+		System.out.println("inside addseeker");
+		System.out.println(s.getOrgName()+s.getAddress()+s.getCategory()+s.getContactNo()+s.getWebsite());
+		 if( seekerService.addSeeker(s)==true) {
+			 return "Entry Added Successfully";
+		 }
+		 return "Cannot Add";
+	}
 	
 
 }

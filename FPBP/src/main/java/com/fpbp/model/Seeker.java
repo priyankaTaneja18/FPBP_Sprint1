@@ -8,12 +8,13 @@ public class Seeker {
 	private String email;
 	private String requirement;
 	private int quantity;
+	private String category;
 	
 	public Seeker() {
 		super();
 	}
 	public Seeker(String orgName, String address, String contactNo, String website, String email, String requirement,
-			int quantity) {
+			int quantity,String category) {
 		this.orgName = orgName;
 		this.address = address;
 		this.contactNo = contactNo;
@@ -21,6 +22,7 @@ public class Seeker {
 		this.email = email;
 		this.requirement = requirement;
 		this.quantity = quantity;
+		this.category = category;
 	}
 
 	public String getOrgName() {
@@ -62,7 +64,15 @@ public class Seeker {
 	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(Integer integer) {
-		this.quantity = integer;
+	
+	public String getCategory() {
+		return category;
 	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 }

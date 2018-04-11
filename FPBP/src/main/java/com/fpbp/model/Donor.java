@@ -7,13 +7,14 @@ public class Donor {
 	private String email;
 	private String hoursOfOperation;
 	private String website;
+	private String category;
 	
 	public Donor() {
 		//super();
 	}
 	
 	public Donor(String name, String address, String contactNo, String email, String hoursOfOperation,
-			String website) {
+			String website, String category) {
 		super();
 		this.name = name;
 		this.address = address;
@@ -21,6 +22,7 @@ public class Donor {
 		this.email = email;
 		this.hoursOfOperation = hoursOfOperation;
 		this.website = website;
+		this.category=category;
 	}
 	
 	public String getName() {
@@ -58,6 +60,14 @@ public class Donor {
 	}
 	public void setWebsite(String website) {
 		this.website = website;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 }

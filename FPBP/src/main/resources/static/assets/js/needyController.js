@@ -18,10 +18,35 @@ app.controller("needyController", function($scope,$http,$location){
 			});
 		}
 	
+	
   $scope.submitForm=function(){
-		
-		$scope.successMsg='called';
 	
-  }
+			$scope.successMsg='called';
+			$http({
+					method:"POST",
+					url:'/AvailableCategories/AddSeekerRequirement',
+					data : {
+	                    "orgName" : $scope.seeker.org_name,
+	                    "address" : $scope.seeker.address,
+	                    "contactNo" : $scope.seeker.contact_no,
+	                    "website" : $scope.seeker.website,
+	                    "email" : $scope.seeker.email,
+	                    "requirement" : $scope.seeker.requirement,
+	                    "quantity" : $scope.seeker.quantity,
+	                    "category" : $scope.url
+	                    
+	                },
+                    headers : {
+                    	'Accept':'text/plain'
+                       
+                    }
+					 
+			}).then(function(response){
+				alert(response.data);
+				location.href = '/index.html';
+			});
+			
+	}
+  
 	
-}).factory("Seeker")
+});
