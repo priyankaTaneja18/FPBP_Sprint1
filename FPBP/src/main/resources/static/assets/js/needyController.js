@@ -48,5 +48,54 @@ app.controller("needyController", function($scope,$http,$location){
 			
 	}
   
+  $scope.LoginForm = function () {  
+		$scope.message='hi';
+		$http({
+			method:"POST",
+			url:'/Users/login',
+			data : {
+				emailId: $scope.UserModel.Email,  
+				password: $scope.UserModel.Password
+			},
+			headers : {
+				'Accept':'text/plain'
+
+			}
+
+		}).then(function(response){
+			$scope.message= response.data;
+			if(response.data == "Login Successful")
+			{
+				/*if(response.data.equals(""))*/
+				location.href = '/NeedHelpAddForm.html?'+category;
+			}
+			/*else{
+      	alert(response.data);
+      }*/
+		});
+	}
+  
+  $scope.RegisterForm = function () { 	
+	  alert('hi');
+		$http({
+			method:"POST",
+			url:'/Users/register',
+			data : {
+				emailId: $scope.UserModel.Email,  
+				password: $scope.UserModel.Password
+			},
+			headers : {
+				'Accept':'text/plain'
+			}
+
+		}).then(function(response){
+			$scope.message= response.data;
+			if(response.data == "Account created successfully")
+			{
+				alert(response.data)
+				location.href = '/NeedHelpAddForm.html?'+category;
+			}
+		});
+	}	
 	
 });

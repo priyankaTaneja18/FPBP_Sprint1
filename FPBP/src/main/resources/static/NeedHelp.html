@@ -5,197 +5,201 @@
 <title>FOR PEOPLE BY PEOPLE</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')</script>
 <!-- Fonts -->
 <link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700'
-	rel='stylesheet' type='text/css'>
+    href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700'
+    rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Dosis:400,700'
-	rel='stylesheet' type='text/css'>
-
+    rel='stylesheet' type='text/css'>
 <!-- Bootsrap -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
+<script src="assets/js/bootstrap.min.js"></script>
 <!-- Font awesome -->
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
 <!-- Owl carousel -->
 <link rel="stylesheet" href="assets/css/owl.carousel.css">
-
 <!-- Template main Css -->
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/categorytablestyle.css">
 <!-- Modernizr -->
 <!--  <script src="assets/js/modernizr-2.6.2.min.js"></script> -->
-
 </head>
-
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 <script src="assets/js/needyController.js"></script>
 <body ng-controller="needyController">
-
-	<div class="flex-container" ng-init="load()">
-		<header class="main-header">
-			<nav class="navbar navbar-static-top">
-
-				<div class="navbar-top">
-
-					<div class="container">
-						<div class="row">
-
-							<div class="col-sm-6 col-xs-12">
-
-								<ul class="list-unstyled list-inline header-contact">
-									<li><i class="fa fa-phone"></i> <a href="tel:">+980
-											980 9800 </a></li>
-									<li><i class="fa fa-envelope"></i> <a
-										href="mailto:contact@fpbp.org">contact@fpbp.org</a></li>
-								</ul>
-								<!-- /.header-contact  -->
-
-							</div>
-
-							<div class="col-sm-6 col-xs-12 text-right">
-
-								<!-- <ul class="list-unstyled list-inline header-social">
-
-                            <li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
-                            <li> <a href="#"> <i class="fa fa-twitter"></i>  </a> </li>
-                            <li> <a href="#"> <i class="fa fa-google"></i>  </a> </li>
-                            <li> <a href="#"> <i class="fa fa-youtube"></i>  </a> </li>
-                            <li> <a href="#"> <i class="fa fa fa-pinterest-p"></i>  </a> </li>
-                       </ul> /.header-social 
- -->
-							</div>
-
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="navbar-main">
-
-					<div class="container">
-
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-
-							</button>
-
-							<a class="navbar-brand" href="index.html"><img
-								src="assets/images/logo.png" alt="" width="150dp" height="100dp"></a>
-							<a class="navbar-brand">For People By People</a>
-						</div>
-
-						<div id="navbar" class="navbar-collapse collapse pull-right">
-
-							<ul class="nav navbar-nav">
-
-								<li><a class="is-active" href="index.html">HOME</a></li>
-								<!-- <li><a href="about.html">ABOUT</a></li>
+    <div class="flex-container" ng-init="load()">
+        <header class="main-header">
+            <nav class="navbar navbar-static-top">
+                <div class="navbar-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <ul class="list-unstyled list-inline header-contact">
+                                    <li><i class="fa fa-phone"></i> <a href="tel:">+980
+                                            980 9800 </a></li>
+                                    <li><i class="fa fa-envelope"></i> <a
+                                        href="mailto:contact@fpbp.org">contact@fpbp.org</a></li>
+                                </ul>
+                                <!-- /.header-contact  -->
+                            </div>
+                            <div class="col-sm-6 col-xs-12 text-right">
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-main">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed"
+                                data-toggle="collapse" data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span> <span
+                                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                                    class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img
+                                src="assets/images/logo.png" alt="" width="150dp" height="100dp"></a>
+                            <a class="navbar-brand">For People By People</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a class="is-active" href="index.html">HOME</a></li>
+                                <!-- <li><a href="about.html">ABOUT</a></li>
                      <li class="has-child"><a href="#">CAUSES</a>
-
                       <ul class="submenu">
                          <li class="submenu-item"><a href="causes.html">Causes list </a></li>
                          <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
                          <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
                          <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
                       </ul>
-
                     </li> 
                     <li><a href="gallery.html">GALLERY</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
  -->
-							</ul>
+                            </ul>
+        
+        
+                        </div>
+                        <!-- /#navbar -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.navbar-main -->
+        
+            </nav>
+        </header>
+        <div class="nav">
+            <br>
+            <br> <br>
+            <table
+                class="needHelp-table needHelp-table-horizontal needHelp-table-highlight">
+                <tbody>
+                    <tr ng-repeat="n in seekCategorylists"
+                        ng-class="{ 'selected':n==url}">
+                        <td><a id="{{n}}">{{n}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br> <br>
+            <br>
+        </div> 
+        <div class="article"
+            style="padding: 50px; max-height: 550px; max-width: 100%; overflow-y: scroll;">
+            <div align="right">
+            Can't find what you are looking for??  <a href="#" data-toggle="modal" data-target="#helpModal"  ><b>Click Here to Add</b></a>
+            your own requirement!!
+            </div>
+             <div ng-repeat="n in lists"
+                style="border: solid; padding: 10px; width: 100%;">
+                <table>
+                    <tr>
+                        <td><b>Name</b></td>
+                        <td>{{n.name}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Address</b></td>
+                        <td>{{n.address}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Contact Nbr</b></td>
+                        <td>{{n.contactNo}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Email</b></td>
+                        <td>{{n.email}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Hours Of Operation</b></td>
+                        <td>{{n.hoursOfOperation}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Website</b></td>
+                        <td>{{n.website}}</td>
+                    </tr>
+                </table>
+            </div>  
+        </div>
+    </div>
+    
+    
+    
+    <div class="modal fade" id="helpModal" role="dialog" ng-controller="needyController">
+            <div class="modal-dialog">
+            <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">	
+      <form name="myForm" >
+      	<div class="form-goup">
+      		<label for="InputUserEmailId">EmailId</label>
+      		<!-- <input class="form-control" placeholder="Email Id", type="text" id="InputUserEmailId"> -->
+      		<input type="email" ng-model="UserModel.Email" name="UserEmail" ng-class="Submited?'ng-dirty':''" required autofocus class="form-control"/>  
+                    <span style="color:red" ng-show="(myForm.UserEmail.$dirty || Submited ) && myForm.UserEmail.$error.required">Please enter Email</span>  
+                    <span style="color:red" ng-show="myForm.UserEmail.$error.email">Email is not valid</span>  
+      	</div>
+      	<div class="form-goup">
+      		<label for="InputPassword">Password</label>
+      		<!-- <input class="form-control" placeholder="Password", type="password" id="InputPassword"> -->
+      		<input type="password" ng-model="UserModel.Password" name="UserPassword" ng-class="Submited?'ng-dirty':''" required autofocus class="form-control"/>  
+                    <span style="color:red" ng-show="(myForm.UserPassword.$dirty || Submited) && myForm.UserPassword.$error.required">Password Required</span>  
+  
+  		
+      	</div>
+      	<div class="modal-footer">
+      	<center>
+        	<button type="submit" class="btn btn-default" ng-click="RegisterForm()" >Sign up</button>
+       <button type="submit" class="btn btn-default " ng-click="LoginForm()">Sign in</button>   
+      	</center>
+      	 msg={{message}}
+      </div>
+      </form>
+        <br>
+      
+    </div>
 
-						</div>
-						<!-- /#navbar -->
-
-					</div>
-					<!-- /.container -->
-
-				</div>
-				<!-- /.navbar-main -->
-
-
-			</nav>
-
-		</header>
-
-
-		<div class="nav">
-			<br>
-			<br> <br>
-			<table
-				class="needHelp-table needHelp-table-horizontal needHelp-table-highlight">
-
-				<tbody>
-					<tr ng-repeat="n in seekCategorylists"
-						ng-class="{ 'selected':n==url}">
-						<td><a id="{{n}}">{{n}}</a></td>
-					</tr>
-
-				</tbody>
-			</table>
-
-			<br> <br>
-			<br>
-		</div>
-
-		<div class="article"
-			style="padding: 50px; max-height: 550px; max-width: 100%; overflow-y: scroll;">
-			<div align="right">
-			Can't find what you are looking for??  <a href=" {{'/NeedHelpAddForm.html?'+url}} "><b>Click Here to Add</b></a></input>
-			your own requirement!!
-			</div>
-			<div ng-repeat="n in lists"
-				style="border: solid; padding: 10px; width: 100%;">
-
-				<table>
-					<tr>
-						<td><b>Name</b></td>
-						<td>{{n.name}}</td>
-					</tr>
-					<tr>
-						<td><b>Address</b></td>
-						<td>{{n.address}}</td>
-					</tr>
-					<tr>
-						<td><b>Contact Nbr</b></td>
-						<td>{{n.contactNo}}</td>
-					</tr>
-					<tr>
-						<td><b>Email</b></td>
-						<td>{{n.email}}</td>
-					</tr>
-					<tr>
-						<td><b>Hours Of Operation</b></td>
-						<td>{{n.hoursOfOperation}}</td>
-					</tr>
-					<tr>
-						<td><b>Website</b></td>
-						<td>{{n.website}}</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-
-		</td>
-		</tr>
-		</table>
-	</div>
-	</div>
-
-	<footer>Copyright &copy; W3Schools.com</footer>
-	</div>
-
+  </div>
+                <!-- <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="seekModalLabel">SEEK HELP</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>heeloo</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    
+    <footer>Copyright &copy; W3Schools.com</footer>
+    
 </body>
-
 </html>
