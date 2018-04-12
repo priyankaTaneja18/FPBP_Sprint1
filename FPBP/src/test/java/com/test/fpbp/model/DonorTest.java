@@ -9,19 +9,38 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import com.fpbp.model.AvailableCategories;
+import com.fpbp.model.Donor;
 
 public class DonorTest {
-	/*
+	
 	@Test
-	public void testDefaultConstructor() {
-		ArrayList<String> categories=new ArrayList();
-		categories.add(new String("Food"));
-		categories.add(new String("Housing"));
-		
-		ac=new AvailableCategories();
-		ac.setCategories(categories);  //Calling setter method
-		
-		assertThat(ac.getCategories().size(), is(2));
-		assertEquals(ac.getCategories().get(0),"Food");	// testing getter method
-	}*/
+	public void testDonorConstructor() {
+		Donor d=new Donor("UNCC","Charlotte","980980","uncc@unn.edu","5Days","","Food");
+		assertEquals(d.getName(),"UNCC");
+		assertEquals(d.getAddress(),"Charlotte");
+		assertEquals(d.getContactNo(),"980980");
+		assertEquals(d.getEmail(),"uncc@unn.edu");
+		assertEquals(d.getHoursOfOperation(),"5Days");
+		assertEquals(d.getWebsite(),"");
+		assertEquals(d.getCategory(),"Food");
+	}
+	
+	@Test
+	public void testGetterSetters() {
+		Donor d=new Donor();
+		d.setName("UNCC");
+		d.setAddress("Charlotte");
+		d.setContactNo("980980");
+		d.setEmail("uncc@unn.edu");
+		d.setHoursOfOperation("5Days");
+		d.setWebsite("");
+		d.setCategory("Food");
+		assertEquals(d.getName(),"UNCC");
+		assertEquals(d.getAddress(),"Charlotte");
+		assertEquals(d.getContactNo(),"980980");
+		assertEquals(d.getEmail(),"uncc@unn.edu");
+		assertEquals(d.getHoursOfOperation(),"5Days");
+		assertEquals(d.getWebsite(),"");
+		assertEquals(d.getCategory(),"Food");
+	}
 }
