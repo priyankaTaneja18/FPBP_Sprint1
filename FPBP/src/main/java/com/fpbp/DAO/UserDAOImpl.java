@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -22,12 +23,24 @@ import com.fpbp.model.Users;
 public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 
 	@Autowired 
-	DataSource dataSource;
+	DataSource dataSource;	
+	
+	JdbcTemplate jdbcTemplate;
+	
 
 	@PostConstruct
 	private void initialize(){
 		setDataSource(dataSource);
+		jdbcTemplate=new JdbcTemplate(dataSource);
 	}
+
+	
+	public UserDAOImpl(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+		this.dataSource = dataSource;
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+
 
 	public String validateUser(String email, String password) throws SQLException
 	{	
@@ -36,7 +49,7 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 		//getJdbcTemplate().queryForInt()
 		/*Users user = (User) getJdbcTemplate().queryForObject(sql, new Object[] {email}, new UserRowMapper());*/
 		try {
-			Users user = (Users)getJdbcTemplate().queryForObject(
+			Users user = (Users)jdbcTemplate.queryForObject(
 					sql, new Object[] { email }, new UserRowMapper());
 			if(!user.getPassword().equals(password))
 				msg="Invalid password";
