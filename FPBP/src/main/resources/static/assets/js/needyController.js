@@ -85,7 +85,7 @@ app.controller("needyController", function($scope,$http,$location){
 	}
   
   $scope.RegisterForm = function () { 	
-	  alert('hi');
+	  
 		$http({
 			method:"POST",
 			url:'/Users/register',
@@ -103,6 +103,8 @@ app.controller("needyController", function($scope,$http,$location){
 			{
 				alert(response.data)
 				location.href = '/NeedHelpAddForm.html?'+category;
+				localStorage.setItem("email", $scope.UserModel.Email);
+				$scope.email='Hi,'+localStorage.getItem("email");
 			}
 		});
 	}	

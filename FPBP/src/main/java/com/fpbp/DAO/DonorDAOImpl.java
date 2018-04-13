@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -23,15 +24,22 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 	@Autowired 
 	DataSource dataSource;
 
+	JdbcTemplate jdbcTemplate;
 	@PostConstruct
 	private void initialize(){
 		setDataSource(dataSource);
 	}
+	
+	public DonorDAOImpl(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+		this.dataSource = dataSource;
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
 	private List<Donor> result;
 
 	public List<Donor> fetchProviders(String category) {
 		String sql = "SELECT * FROM helpProvider where Category=?" ;
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, new Object[] {category});
+		List<Map<String, Object>> rows =jdbcTemplate.queryForList(sql, new Object[] {category});
 				        
 		result = new ArrayList<Donor>();
 		return setDonor(rows);

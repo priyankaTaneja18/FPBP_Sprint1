@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -26,16 +27,23 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 	@Autowired 
 	DataSource dataSource;
 
+	JdbcTemplate jdbcTemplate;
 	private List<Seeker> result;
 	@PostConstruct
 	private void initialize(){
 		setDataSource(dataSource);
 	}
+	
+	public SeekerDAOImpl(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+		this.dataSource = dataSource;
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
 
 	public List<Seeker> fetchSeekers(String category) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM helpSeeker where Category=?";
-		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, new Object[] {category});        
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, new Object[] {category});        
 		result = new ArrayList<Seeker>();
 		return setSeeker(rows);
 	}
@@ -70,7 +78,7 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 		  int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.INTEGER,Types.VARCHAR };
 		// execute insert query to insert the data
 		      // return number of row / rows processed by the executed query
-		     int row = getJdbcTemplate().update(sql, params, types);
+		     int row = jdbcTemplate.update(sql, params, types);
 		     System.out.println(row + " row inserted.");
 
 	 if(row==0) {
