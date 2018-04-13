@@ -16,6 +16,13 @@ app.controller("needyController", function($scope,$http,$location){
 			$scope.seekCategorylists=response.data;
 			
 			});
+		
+		$scope.email=localStorage.getItem("email");
+		if($scope.email==""){
+			document.getElementById("logout").style.visibility = "hidden";
+		}else{
+			document.getElementById("logout").style.visibility = "visible";
+		}
 		}
 	
 	
@@ -43,7 +50,7 @@ app.controller("needyController", function($scope,$http,$location){
 					 
 			}).then(function(response){
 				alert(response.data);
-				location.href = '/index.html';
+				location.href = '/NeedHelp.html?'+category;
 			});
 			
 	}
@@ -68,6 +75,8 @@ app.controller("needyController", function($scope,$http,$location){
 			{
 				/*if(response.data.equals(""))*/
 				location.href = '/NeedHelpAddForm.html?'+category;
+				localStorage.setItem("email", $scope.UserModel.Email);
+				$scope.email='Hi,'+localStorage.getItem("email");
 			}
 			/*else{
       	alert(response.data);
@@ -97,5 +106,19 @@ app.controller("needyController", function($scope,$http,$location){
 			}
 		});
 	}	
+  
+  $scope.haveLoggedIn= function(){
+	  if($scope.email==""){
+		  $scope.value="helpModal";
+	  }else{
+		  $scope.value="";
+		  location.href = '/NeedHelpAddForm.html?'+category;
+	  }
+  }
+  
+  $scope.logout=function(){
+	  localStorage.setItem("email","");
+	  location.href = '/index.html';
+  }
 	
 });
