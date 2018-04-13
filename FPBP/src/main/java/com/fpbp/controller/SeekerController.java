@@ -22,11 +22,19 @@ public class SeekerController {
 	@Autowired
 	ISeekerService seekerService;
 
+	
+	public void setSeekerService(ISeekerService seekerService) {
+		this.seekerService = seekerService;
+	}
+	
+	
 	@RequestMapping(value="/Seeker", method= RequestMethod.GET)
 	public List<Seeker> fetchSeekers(@RequestParam("category") String category){
 			System.out.println("$$$$$$$$"+category);
 		return seekerService.fetchSeekers(category);
 	}
+
+	
 
 	@RequestMapping(value="/AddSeekerRequirement",consumes = MediaType.APPLICATION_JSON_VALUE, method= RequestMethod.POST)
 	public String addSeeker(@RequestBody Seeker s) {

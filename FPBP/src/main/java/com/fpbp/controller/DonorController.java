@@ -20,6 +20,14 @@ public class DonorController {
 
 	@Autowired
 	IDonorService donorService;
+	
+	
+
+	public void setDonorService(IDonorService donorService) {
+		this.donorService = donorService;
+	}
+
+
 
 	@RequestMapping(value="/Providers", method= RequestMethod.GET)
 	public List<Donor> fetchProviders(@RequestParam("category") String category){

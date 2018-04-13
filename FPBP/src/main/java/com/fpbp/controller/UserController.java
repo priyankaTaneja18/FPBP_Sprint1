@@ -18,6 +18,10 @@ public class UserController {
 	
 	@Autowired
 	IUserService userService;
+	
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
 
 	@RequestMapping(value="/login",consumes = MediaType.APPLICATION_JSON_VALUE, method= RequestMethod.POST)
 	public String validateUser(@RequestBody Users user) {

@@ -14,7 +14,11 @@ import com.fpbp.service.IAvailableCategoriesService;
 public class AvailableCategoriesController {
 
 	@Autowired
-	IAvailableCategoriesService availableCategories;
+	private IAvailableCategoriesService availableCategories;
+
+	public void setAvailableCategories(IAvailableCategoriesService availableCategories) {
+		this.availableCategories = availableCategories;
+	}
 
 	@RequestMapping(value="/Category", method= RequestMethod.GET)
 	public List<String> findCategories(){

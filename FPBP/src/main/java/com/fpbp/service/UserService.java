@@ -20,6 +20,12 @@ public class UserService implements IUserService {
 	public void setUserDao(UserDAO userDao)  {
 		this.userDao = userDao;
 	}
+	
+
+	public UserService(UserDAO userDao) {
+		super();
+		this.userDao = userDao;
+	}
 
 	public String validateUser(String username, String password) throws SQLException {
 		// TODO Auto-generated method stub
