@@ -184,8 +184,8 @@
             </div>
       	<div class="modal-footer">
       	<center>
-        	<button type="submit" class="btn btn-default" ng-click="RegisterForm()" >Sign up</button>
-       <button type="submit" class="btn btn-default " ng-click="LoginForm()">Sign in</button>   
+        	<button type="submit" class="btn btn-default" ng-click="RegisterForm()" ng-disabled="myForm.$invalid">Sign up</button>
+       <button type="submit" class="btn btn-default " ng-click="LoginForm()"ng-disabled="myForm.$invalid">Sign in</button>   
       	</center>
       	<center>{{message}}</center>
       </div>
