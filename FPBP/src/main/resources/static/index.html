@@ -28,12 +28,16 @@
 <!--  <script src="assets/js/modernizr-2.6.2.min.js"></script> -->
 
 </head>
-<script
+
+	<script
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')</script>
+	<script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 <script src="assets/js/controller.js"></script>
-<body>
+<body ng-controller="demoCtrl">
 
-
+<div ng-init="load()"></div>
 	<header class="main-header">
 
 
@@ -44,17 +48,21 @@
 				<div class="container">
 					<div class="row">
 
-						<div class="col-sm-6 col-xs-12">
+						<div class="col-sm-6 col-xs-12" -webkit-order=1>
 
 							<ul class="list-unstyled list-inline header-contact">
 								<li><i class="fa fa-phone"></i> <a href="tel:">+980 980
 										9800 </a></li>
 								<li><i class="fa fa-envelope"></i> <a
 									href="mailto:contact@fpbp.org">contact@fpbp.org</a></li>
+									
 							</ul>
+							
 							<!-- /.header-contact  -->
 
 						</div>
+						<div align="right" -webkit-order=2><b>{{email}}</b>
+						&nbsp;&nbsp;&nbsp;<a id="logout" ng-click="logout()">Logout</a></div>
 
 
 					</div>
@@ -82,12 +90,13 @@
 						<a class="navbar-brand">For People By People</a>
 					</div>
 
-					<div id="navbar" class="navbar-collapse collapse pull-right">
+					<div id="navbar" class="navbar-collapse collapse pull-right" >
 
-						<ul class="nav navbar-nav">
+						<ul class="nav navbar-nav" >
 
 							<li><a class="is-active" href="index.html">HOME</a></li>
 							<li><a href="#">ABOUT</a></li>
+							<li><a href="#" ng-click="haveLoggedInBefore()" data-toggle="modal" data-target="{{'#'+value}}">SignIn/Up</a></li>
 						</ul>
 
 					</div>
@@ -106,7 +115,8 @@
 	<!-- /. main-header -->
 
 
-<div ng-controller="demoCtrl">
+<div >
+
 
 	<!-- Carousel
     ================================================== -->
@@ -311,6 +321,53 @@
 
 		</div>
 		<!--  /.modal -->
+		
+		<div class="modal fade" id="loginModal" role="dialog" ng-controller="demoCtrl">
+            <div class="modal-dialog">
+            <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">	
+      <form name="myForm" >
+      	<div class="form-goup">
+      		<label for="InputUserEmailId">Email Id</label>
+      		<!-- <input class="form-control" placeholder="Email Id", type="text" id="InputUserEmailId"> -->
+      		<input type="email" ng-model="UserModel.Email" name="UserEmail" ng-class="Submited?'ng-dirty':''" required autofocus class="form-control"/>  
+                    <span style="color:red" ng-show="(myForm.UserEmail.$dirty || Submited ) && myForm.UserEmail.$error.required">Please enter Email</span>  
+                    <span style="color:red" ng-show="myForm.UserEmail.$error.email">Email is not valid</span>  
+      	</div>
+      	<div class="form-goup">
+      		<label for="InputPassword">Password</label>
+      		<!-- <input class="form-control" placeholder="Password", type="password" id="InputPassword"> -->
+      		<input type="password" ng-model="UserModel.Password" name="UserPassword" required 
+                ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" ng-class="Submited?'ng-dirty':''" required autofocus class="form-control"/>  
+                    <span style="color:red" ng-show="(myForm.UserPassword.$dirty || Submited) && myForm.UserPassword.$error.required">Password Required</span>  
+  		
+      	</div>
+      	<div
+                ng-messages="registerForm.userPassword.$error">
+                <div ng-message="required">Password should be atleast 8 characters
+                    long and should contain one number,one character and one special
+                    character</div>
+            </div>
+      	<div class="modal-footer">
+      	<center>
+        	<button type="submit" class="btn btn-default" ng-click="RegisterForm()" ng-disabled="myForm.$invalid">Sign up</button>
+       <button type="submit" class="btn btn-default " ng-click="LoginForm()"ng-disabled="myForm.$invalid">Sign in</button>   
+      	</center>
+      	<center>{{message}}</center>
+      </div>
+      </form>
+        <br>
+      
+    </div>
+    </div>
+    </div>
+
+
+</div>
 
 	</div>
 

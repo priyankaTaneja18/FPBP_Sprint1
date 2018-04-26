@@ -24,19 +24,32 @@ app.controller("donorController", function($scope,$http,$location){
 				});
 		}else{
 			$http.get('/AvailableCategories/SearchSeeker?category='+category+'&search='+searchText).then(function(response) {       
-				$scope.lists=response.data;
+				if(response.data==""){
+					alert('No Result found!');
+				}else{
 				
+				$scope.lists=response.data;
+				}
 				});
 		}
+		
+		$scope.email=localStorage.getItem("email");
+		if($scope.email==""){
+			document.getElementById("logout").style.visibility = "hidden";
+		}else{
+			document.getElementById("logout").style.visibility = "visible";
+		}
+		
 		
 		
 	}
 	 
-	/*$scope.setClickedRow = function(index){
-		$scope.url=index;
-		
-		
-	}*/
 	
+	$scope.logout=function(){
+		  localStorage.setItem("email","");
+		 alert("You are successfully logged out");
+		  location.href = '/index.html';
+	  }
+		
 	
 });

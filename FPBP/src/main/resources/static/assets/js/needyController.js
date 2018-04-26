@@ -9,14 +9,21 @@ app.controller("needyController", function($scope,$http,$location){
 			
 		var searchText= document.getElementById("searchText").value;
 		if(searchText==""){
-		$http.get('/AvailableCategories/Providers?category='+category).then(function(response) {       
+		$http.get('/AvailableCategories/Providers?category='+category).then(function(response) {   
+			
 			$scope.lists=response.data;
+			
 			
 			});
 		}else{
 			$http.get('/AvailableCategories/SearchProviders?category='+category+'&search='+searchText).then(function(response) {       
-				$scope.lists=response.data;
 				
+				if(response.data==""){
+					alert('No Result found');
+					
+				}else{
+				$scope.lists=response.data;
+				}
 				});
 		}
 		
