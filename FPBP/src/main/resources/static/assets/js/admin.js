@@ -53,7 +53,7 @@ app.controller("adminController", function($scope,$http,$location){
 	}
 	 
 	 $scope.deleteSeeker=function(info){
-		 var id= info.id;
+		 var id= info.sid;
 			$scope.successMsg='called';
 			$http({
 					method:"POST",
