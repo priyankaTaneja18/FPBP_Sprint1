@@ -11,6 +11,7 @@ import com.fpbp.DAO.SeekerDAOImpl;
 import com.fpbp.model.Seeker;
 import com.test.fpbp.connection.ConnectionTest;
 public class SeekerDaoTest {
+
     
      @Test
         public void testFetchSeekers() {
@@ -76,3 +77,7 @@ public class SeekerDaoTest {
             
         }
 }
+
+
+	
+	
