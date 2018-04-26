@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html ng-app="admin" class="no-js">
+<head >
+<meta charset="utf-8">
+<title>FOR PEOPLE BY PEOPLE</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= Favicon ================== -->
+<!-- Standard -->
+<link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+<!-- Retina iPad Touch Icon-->
+<link rel="apple-touch-icon" sizes="144x144"
+	href="http://placehold.it/144.png/000/fff">
+<!-- Retina iPhone Touch Icon-->
+<link rel="apple-touch-icon" sizes="114x114"
+	href="http://placehold.it/114.png/000/fff">
+<!-- Standard iPad Touch Icon-->
+<link rel="apple-touch-icon" sizes="72x72"
+	href="http://placehold.it/72.png/000/fff">
+<!-- Standard iPhone Touch Icon-->
+<link rel="apple-touch-icon" sizes="57x57"
+	href="http://placehold.it/57.png/000/fff">
+
+<!-- Styles -->
+<link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+<link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+<link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+<link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+<link href="assets/css/lib/sidebar.css" rel="stylesheet">
+<link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+
+<link href="assets/css/lib/helper.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+
+
+
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	window.jQuery
+			|| document
+					.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')
+</script>
+
+
+<script src="assets/js/modernizr-2.6.2.min.js"></script> 
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+<script src="assets/js/admin.js"></script>
+<!-- Fonts -->
+<!-- <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700'
+    rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dosis:400,700'
+    rel='stylesheet' type='text/css'>
+Bootsrap
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<script src="assets/js/bootstrap.min.js"></script>
+Font awesome
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+Owl carousel
+<link rel="stylesheet" href="assets/css/owl.carousel.css">
+Template main Css
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/categorytablestyle.css">
+Modernizr
+ <script src="assets/js/modernizr-2.6.2.min.js"></script> -->
+
+<style>
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+
+</head>
+
+<body ng-controller="adminController">
+	<div
+		class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+		<div class="nano">
+			<div class="nano-content">
+				<!-- <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="" /><span>Focus</span></a></div>
+                    -->
+				<ul>
+					<!-- <li class="label"><a href="index.html">Go to Home Page</a></li> -->
+
+
+					<br>
+					<li><a class="sidebar-sub-toggle" href="index.html">
+							<h4>Home Page</h4>
+					</a>
+						
+					<li class="label">Tables</li>
+					<li><a  href="" ng-click="seekers()" >
+							Help Seeker</a></li>
+					<li><a href="" ng-click="donors()">
+							Help Provider</a></li>
+					<li class="label">Other</li>
+
+
+
+					<li><a ng-click="logout"> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content-wrap">
+
+		<br>
+		<div class="row">
+			<div class="col-lg-8 p-r-0 title-margin-right">
+				<div class="page-header">
+					<div>
+						<h3>
+							<center>Hello, <span>Admin</span></center>
+						</h3>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div>
+
+				<!-- Tables -->
+				<!-- <div style="overflow-x:auto;"> -->
+				<!-- <div class="table-responsive" max-height: 550px; max-width: 100%; overflow-y: scroll;"> -->
+				
+				 <div class="table-responsive"
+            style="padding: 50px; max-height: 550px; max-width: 100%; overflow-y: scroll;" ng-if="seekerMessage">
+         
+			
+					<table class="table table-hover" >
+						<tr>
+							<th><font size="2">Id</font></th>
+							<th><font size="2">Organization Name</font></th>
+							<th><font size="2">Address</font></th>
+							<th><font size="2">Contact</font></th>
+							<th><font size="2">Website</font></th>
+							<th><font size="2">Email</font></th>
+							<th><font size="2">Requirement</font></th>
+							<th><font size="2">Quantity</font></th>
+							<th><font size="2">Category</font></th>
+							<th></th>
+							
+						</tr>
+						<tr ng-repeat="detail in details">
+							<td><span><font size="2">{{detail.sid}}</font></span></td>
+							<td><span><font size="2">{{detail.orgName}}</font></span></td>
+							<td><font size="2">{{detail.address}}</font></td>
+							<td><font size="2">{{detail.contactNo}}</font></td>
+							<td><font size="2">{{detail.website}}</font></td>
+							<td><font size="2">{{detail.email}}</font></td>
+							<td><font size="2">{{detail.requirement}}</font></td>
+							<td><font size="2">{{detail.quantity}}</font></td>
+							<td><font size="2">{{detail.category}}</font></td>
+							<td>
+							<a href="#" ng-click="deleteSeeker(detail)"
+									title="Delete"><I><font color="red" size="2">Delete</font></I></a>
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+							</td> </font>
+						</tr>
+					</table>
+
+
+
+				</div> 
+
+
+<div class="table-responsive"
+            style="padding: 50px; max-height: 550px; max-width: 100%; overflow-y: scroll;" ng-if="donorMessage">
+         
+			
+					<table class="table table-hover" >
+						<tr>
+							<th><font size="2">Id</font></th>
+							<th><font size="2">Name</font></th>
+							<th><font size="2">Address</font></th>
+							<th><font size="2">Contact</font></th>
+							<th><font size="2">Email</font></th>
+							<th><font size="2">Hours of Operation</font></th>
+							<th><font size="2">Website</font></th>
+							<th><font size="2">Category</font></th>
+							<th></th>
+							
+						</tr>
+						<tr ng-repeat="detail in details">
+							<td><span><font size="2">{{detail.id}}</font></span></td>
+							<td><span><font size="2">{{detail.name}}</font></span></td>
+							<td><font size="2">{{detail.address}}</font></td>
+							<td><font size="2">{{detail.contactNo}}</font></td>
+							<td><font size="2">{{detail.email}}</font></td>
+							<td><font size="2">{{detail.hoursOfOperation}}</font></td>	
+							<td><font size="2">{{detail.website}}</font></td>
+							<td><font size="2">{{detail.category}}</font></td>
+							<td>
+							
+							
+							
+							<a href="#" ng-click="deleteDonor(detail)"
+									title="Delete"><I><font color="red" size="2">Delete</font></I></a>
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+							</td> </font>
+						</tr>
+					</table>
+
+
+
+				</div> 
+
+
+
+			</div>
+			<div class="row">
+				<div class="col-lg-8 p-r-0 title-margin-right">
+					<div class="page-header">
+						<!-- <div>
+                                <h3>tables</h3>
+                            </div> -->
+					</div>
+
+
+
+				</div>
+
+			</div>
+		
+</body>
+</html>

@@ -75,6 +75,7 @@ app.controller("needyController", function($scope,$http,$location){
 		if(  $scope.UserModel.Email == "admin@gmail.com" && $scope.UserModel.Password =="admin@123")
 		{
 			location.href = '/admin.html';
+			localStorage.setItem("email", $scope.UserModel.Email);
 		}
 		else {
 		$http({

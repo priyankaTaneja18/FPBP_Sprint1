@@ -9,11 +9,35 @@ public class Seeker {
 	private String requirement;
 	private int quantity;
 	private String category;
+	int id;
 	
 	public Seeker() {
 		super();
 	}
+	
+	public int getSid() {
+		return id;
+	}
+
+	public void setSid(int sid) {
+		this.id = sid;
+	}
+
 	public Seeker(String orgName, String address, String contactNo, String website, String email, String requirement,
+			int quantity, String category, int id) {
+		super();
+		this.orgName = orgName;
+		this.address = address;
+		this.contactNo = contactNo;
+		this.website = website;
+		this.email = email;
+		this.requirement = requirement;
+		this.quantity = quantity;
+		this.category = category;
+		this.id = id;
+	}
+
+	/*public Seeker(String orgName, String address, String contactNo, String website, String email, String requirement,
 			int quantity,String category) {
 		this.orgName = orgName;
 		this.address = address;
@@ -24,7 +48,7 @@ public class Seeker {
 		this.quantity = quantity;
 		this.category = category;
 	}
-
+*/
 	public String getOrgName() {
 		return orgName;
 	}

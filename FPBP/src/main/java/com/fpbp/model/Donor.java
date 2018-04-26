@@ -8,13 +8,14 @@ public class Donor {
 	private String hoursOfOperation;
 	private String website;
 	private String category;
+	private int id;
 	
 	public Donor() {
 		//super();
 	}
 	
 	public Donor(String name, String address, String contactNo, String email, String hoursOfOperation,
-			String website, String category) {
+			String website, String category, int id) {
 		super();
 		this.name = name;
 		this.address = address;
@@ -23,8 +24,18 @@ public class Donor {
 		this.hoursOfOperation = hoursOfOperation;
 		this.website = website;
 		this.category=category;
+		this.id=id;
 	}
 	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
