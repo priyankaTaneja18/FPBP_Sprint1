@@ -11,7 +11,7 @@ public class SeekerTest {
 	
 	@Test
 	public void testSeekerConstructor() {
-		Seeker d=new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food");
+		Seeker d=new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1);
 		assertEquals(d.getOrgName(),"UNCCOrg");
 		assertEquals(d.getAddress(),"Charlotte");
 		assertEquals(d.getContactNo(),"980980");

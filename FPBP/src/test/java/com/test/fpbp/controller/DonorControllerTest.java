@@ -33,7 +33,7 @@ public class DonorControllerTest {
 	@Test
 	public void testFetchProviders() {
 		List<Donor> ls=new ArrayList<Donor>();
-		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
 		
 		ac = new DonorController();
 				
@@ -64,7 +64,7 @@ public class DonorControllerTest {
 	@Test
 	public void testFetchProvidersBasedonSearch() {
 		List<Donor> ls=new ArrayList<Donor>();
-		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
 		
 		ac = new DonorController();
 				
@@ -93,7 +93,7 @@ public class DonorControllerTest {
 	@Test
 	public void testFetchProvidersBasedonSearch_InvalidPath() {
 		List<Donor> ls=new ArrayList<Donor>();
-		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
 		
 		ac = new DonorController();
 				

@@ -24,7 +24,7 @@ public class SeekerServiceTest {
 		@Test
 		public void testFetchSeekers() {
 			List<Seeker> ls=new ArrayList<Seeker>();
-			ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+			ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1));
 			SeekerDAO s= mock(SeekerDAO.class);	
 			//Given
 			given(s.fetchSeekers("Food")).willReturn(ls);
@@ -40,7 +40,7 @@ public class SeekerServiceTest {
 		@Test
 		public void testAddSeeker() {
 			
-			Seeker seeker=new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food");
+			Seeker seeker=new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1);
 			SeekerDAO s= mock(SeekerDAO.class);	
 			//Given
 			given(s.addSeeker(seeker)).willReturn(true);
@@ -57,7 +57,7 @@ public class SeekerServiceTest {
 		@Test
 		public void testFetchSeekersBasedOnSearch() {
 			List<Seeker> ls=new ArrayList<Seeker>();
-			ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+			ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1));
 			SeekerDAO s= mock(SeekerDAO.class);	
 			//Given
 			given(s.fetchSeekersBasedOnSearch("Food","Charlotte")).willReturn(ls);

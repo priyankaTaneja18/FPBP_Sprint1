@@ -22,7 +22,7 @@ public class DonorServiceTest {
 	@Test
 	public void testFetchProviders() {
 		List<Donor> ls=new ArrayList<Donor>();
-		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
 		DonorDAO s= mock(DonorDAO.class);	
 		//Given
 		given(s.fetchProviders("Education")).willReturn(ls);
@@ -39,7 +39,7 @@ public class DonorServiceTest {
 	@Test
 	public void testFetchProvidersBasedOnSearch() {
 		List<Donor> ls=new ArrayList<Donor>();
-		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
 		DonorDAO s= mock(DonorDAO.class);	
 		//Given
 		given(s.fetchProvidersBasedOnSearch("Education","Charlotte")).willReturn(ls);
