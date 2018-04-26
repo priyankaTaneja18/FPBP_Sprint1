@@ -50,9 +50,9 @@ app.controller("demoCtrl", function($scope,$http,$location){
 			$scope.message= response.data;
 			if(response.data == "Account created successfully")
 			{
-				alert(response.data)
-				
+				alert(response.data);		
 				localStorage.setItem("email", $scope.UserModel.Email);
+				location.href = '/index.html';
 				
 			}
 		});
