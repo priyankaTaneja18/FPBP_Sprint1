@@ -65,6 +65,11 @@ app.controller("needyController", function($scope,$http,$location){
   
   $scope.LoginForm = function () {  
 		$scope.message='hi';
+		if(  $scope.UserModel.Email == "admin@gmail.com" && $scope.UserModel.Password =="admin@123")
+		{
+			location.href = '/admin.html';
+		}
+		else {
 		$http({
 			method:"POST",
 			url:'/Users/login',
@@ -81,7 +86,6 @@ app.controller("needyController", function($scope,$http,$location){
 			$scope.message= response.data;
 			if(response.data == "Login Successful")
 			{
-				/*if(response.data.equals(""))*/
 				location.href = '/NeedHelpAddForm.html?'+category;
 				localStorage.setItem("email", $scope.UserModel.Email);
 				$scope.email='Hi,'+localStorage.getItem("email");
@@ -90,6 +94,7 @@ app.controller("needyController", function($scope,$http,$location){
       	alert(response.data);
       }*/
 		});
+		}
 	}
   
   $scope.RegisterForm = function () { 	
