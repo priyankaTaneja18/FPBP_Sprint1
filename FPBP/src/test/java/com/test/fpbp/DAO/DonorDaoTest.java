@@ -35,6 +35,7 @@ private DataSource dataSource;
     	DataSource ds=ct.getSource();
         JdbcTemplate jt = new JdbcTemplate(ds);
         DonorDAO d=new DonorDAOImpl(ds,jt); 
+        jt.update("delete from fpbpTest.helpProvider");
         jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
         jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCCOrg','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
 	
@@ -53,12 +54,12 @@ private DataSource dataSource;
 	    	ConnectionTest ct = new ConnectionTest();
 	    	DataSource ds=ct.getSource();
 	        JdbcTemplate jt = new JdbcTemplate(ds);
-	        
+	        jt.update("delete from fpbpTest.helpProvider");
 	        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','ABC Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
 	         DonorDAO d=new DonorDAOImpl(ds,jt); 
 			List<Donor> msg =  d.fetchProvidersBasedOnSearch("Food","ABC Charlotte");
 			assertEquals(msg.size(),1);
-			jt.update("delete from fpbpTest.helpProvider where category='Food' and address='ABC Charlotte'");
+			jt.update("delete from fpbpTest.helpProvider");
 	        
 	    }
 	 
@@ -69,12 +70,12 @@ private DataSource dataSource;
 	    	ConnectionTest ct = new ConnectionTest();
 	    	DataSource ds=ct.getSource();
 	        JdbcTemplate jt = new JdbcTemplate(ds);
-	        
+	        jt.update("delete from fpbpTest.helpProvider");
 	        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','ABC Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
 	         DonorDAO d=new DonorDAOImpl(ds,jt); 
 			List<Donor> msg =  d.fetchProvidersBasedOnSearch("Food","XYZ");
 			assertEquals(msg.size(),0);
-			jt.update("delete from fpbpTest.helpProvider where category='Food' and address='ABC Charlotte'");
+			jt.update("delete from fpbpTest.helpProvider");
 	        
 	    }
 }
