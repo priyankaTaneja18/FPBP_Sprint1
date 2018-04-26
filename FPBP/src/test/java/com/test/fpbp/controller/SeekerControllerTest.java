@@ -35,7 +35,7 @@ public class SeekerControllerTest {
 	@Test
 	public void testFetchSeekers() {
 		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1));
 		
 		ac = new SeekerController();
 				
@@ -66,7 +66,7 @@ public class SeekerControllerTest {
 	@Test
 	public void testAddSeeker() {
 		
-		Seeker ls=new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food");
+		Seeker ls=new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1);
 		
 		ac = new SeekerController();
 				
@@ -99,7 +99,7 @@ public class SeekerControllerTest {
 	@Test
 	public void testFetchSeekersBasedOnSearch() {
 		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1));
 		
 		ac = new SeekerController();
 				
@@ -128,7 +128,7 @@ public class SeekerControllerTest {
 	@Test
 	public void testFetchSeekersBasedOnSearch_InvalidPath() {
 		List<Seeker> ls=new ArrayList<Seeker>();
-		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1));
 		
 		ac = new SeekerController();
 				

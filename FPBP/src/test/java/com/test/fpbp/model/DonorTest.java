@@ -1,21 +1,16 @@
 package com.test.fpbp.model;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-
-import java.util.ArrayList;
 
 import org.junit.Test;
 
-import com.fpbp.model.AvailableCategories;
 import com.fpbp.model.Donor;
 
 public class DonorTest {
 	
 	@Test
 	public void testDonorConstructor() {
-		Donor d=new Donor("UNCC","Charlotte","980980","uncc@unn.edu","5Days","","Food");
+		Donor d=new Donor("UNCC","Charlotte","980980","uncc@unn.edu","5Days","","Food",1);
 		assertEquals(d.getName(),"UNCC");
 		assertEquals(d.getAddress(),"Charlotte");
 		assertEquals(d.getContactNo(),"980980");
