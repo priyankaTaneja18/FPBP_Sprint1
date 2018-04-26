@@ -67,6 +67,7 @@ public class UserControllerTest {
 		}
 	}
 
+	@Test
 public void testRegisterUser() {
 		
 		Users ls=new Users("users@test.com","test");
@@ -90,6 +91,7 @@ public void testRegisterUser() {
 					.post("/Users/register")
 					.accept(MediaType.APPLICATION_JSON_UTF8).content(example)
 					.contentType(MediaType.APPLICATION_JSON_UTF8);
+			
 			
 			  mockMvc.perform(requestBuilder)
 					.andExpect(status().isOk())

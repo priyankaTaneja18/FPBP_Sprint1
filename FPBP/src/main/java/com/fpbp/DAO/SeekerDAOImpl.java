@@ -28,7 +28,7 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 	DataSource dataSource;
 
 	JdbcTemplate jdbcTemplate;
-	private List<Seeker> result;
+	
 	@PostConstruct
 	private void initialize(){
 		setDataSource(dataSource);
@@ -44,7 +44,7 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM helpSeeker where Category=?";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, new Object[] {category});        
-		result = new ArrayList<Seeker>();
+		
 		return setSeeker(rows);
 	}
 
@@ -52,6 +52,8 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 
 	private List<Seeker> setSeeker(List<Map<String, Object>> rows)
 	{
+		 List<Seeker> result;
+		 result = new ArrayList<Seeker>();
 		for(Map<String, Object> row:rows){
 			Seeker seeker = new Seeker();            
 			seeker.setOrgName(((String)row.get("org_name")));
@@ -87,5 +89,12 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 		
 		return true;
 		
+	}
+
+	public List<Seeker> fetchSeekersBasedOnSearch(String category, String search) {
+		String sql = "SELECT * FROM helpSeeker where Category=? and address like('%"+search+"%')";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, new Object[] {category});        
+		
+		return setSeeker(rows);
 	}
 }

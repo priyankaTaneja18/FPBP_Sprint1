@@ -34,8 +34,14 @@ public class SeekerController {
 		return seekerService.fetchSeekers(category);
 	}
 
+	@RequestMapping(value="/SearchSeeker", method= RequestMethod.GET)
+	public List<Seeker> fetchSeekersBasedOnSearch(@RequestParam("category") String category,@RequestParam("search") String search ){
+			System.out.println("$$$$$$$$"+search);
+		return seekerService.fetchSeekersBasedOnSearch(category,search);
+	}
 	
-
+	
+	
 	@RequestMapping(value="/AddSeekerRequirement",consumes = MediaType.APPLICATION_JSON_VALUE, method= RequestMethod.POST)
 	public String addSeeker(@RequestBody Seeker s) {
 		System.out.println("inside addseeker");

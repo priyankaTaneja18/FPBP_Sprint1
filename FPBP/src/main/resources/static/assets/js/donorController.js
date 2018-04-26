@@ -14,11 +14,20 @@ app.controller("donorController", function($scope,$http,$location){
 		$scope.url=category;
 		
 		$scope.inside=true;
+		
+		var searchText= document.getElementById("searchText").value;
+		if(searchText==""){
+
 			$http.get('/AvailableCategories/Seeker?category='+category).then(function(response) {       
 				$scope.lists=response.data;
 				
 				});
-		
+		}else{
+			$http.get('/AvailableCategories/SearchSeeker?category='+category+'&search='+searchText).then(function(response) {       
+				$scope.lists=response.data;
+				
+				});
+		}
 		
 		
 	}

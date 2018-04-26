@@ -84,9 +84,7 @@ public class SeekerControllerTest {
 					.contentType(MediaType.APPLICATION_JSON_UTF8);
 			
 			  mockMvc.perform(requestBuilder)
-					.andExpect(status().isOk())
-					
-					;
+					.andExpect(status().isOk());
 					
 					
 					
@@ -97,5 +95,61 @@ public class SeekerControllerTest {
 		}
 	}
 
+	
+	@Test
+	public void testFetchSeekersBasedOnSearch() {
+		List<Seeker> ls=new ArrayList<Seeker>();
+		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+		
+		ac = new SeekerController();
+				
+		ISeekerService av=mock(SeekerService.class);
+		ac.setSeekerService(av);
+		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
+		when(av.fetchSeekersBasedOnSearch("Food","Charlotte")).thenReturn(ls);
+		
+		//When		
+		try {
+			  mockMvc.perform(get("/AvailableCategories/SearchSeeker").param("category", "Food").param("search","Charlotte"))
+					.andExpect(status().isOk())
+					.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+					.andExpect(jsonPath("$", hasSize(1)))
+					.andExpect(jsonPath("$[0].orgName", is("UNCCOrg")));
+					
+					
+					
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testFetchSeekersBasedOnSearch_InvalidPath() {
+		List<Seeker> ls=new ArrayList<Seeker>();
+		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+		
+		ac = new SeekerController();
+				
+		ISeekerService av=mock(SeekerService.class);
+		ac.setSeekerService(av);
+		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
+		when(av.fetchSeekersBasedOnSearch("Food","Charlotte")).thenReturn(ls);
+		
+		//When		
+		try {
+			  mockMvc.perform(get("/AvailableCategories/Seek").param("category", "Food").param("search","Charlotte"))
+					.andExpect(status().is(404));
+					
+					
+					
+					
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

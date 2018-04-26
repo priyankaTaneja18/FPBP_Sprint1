@@ -114,7 +114,14 @@
 		</div>
         <div class="article"
             style="padding: 50px; max-height: 550px; max-width: 100%; overflow-y: scroll;">
+            
             <div align="right">
+           	<div>
+           	
+			  <input type="text" id="searchText" placeholder="Search.." name="search2">
+			  <button type="submit" ng-click="load()"><i class="fa fa-search"></i></button>
+			
+			</div>
             Can't find what you are looking for??  <a href="#" data-toggle="modal" data-target="{{'#'+value}}" ng-click="haveLoggedIn()" ><b>Click Here to Add</b></a>
             your own requirement!!
             </div>
@@ -162,7 +169,7 @@
       <div class="modal-body">	
       <form name="myForm" >
       	<div class="form-goup">
-      		<label for="InputUserEmailId">EmailId</label>
+      		<label for="InputUserEmailId">Email Id</label>
       		<!-- <input class="form-control" placeholder="Email Id", type="text" id="InputUserEmailId"> -->
       		<input type="email" ng-model="UserModel.Email" name="UserEmail" ng-class="Submited?'ng-dirty':''" required autofocus class="form-control"/>  
                     <span style="color:red" ng-show="(myForm.UserEmail.$dirty || Submited ) && myForm.UserEmail.$error.required">Please enter Email</span>  

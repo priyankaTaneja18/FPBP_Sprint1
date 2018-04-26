@@ -4,13 +4,21 @@ app.controller("needyController", function($scope,$http,$location){
 	var category= $location.absUrl().split('?')[1];	
 	$scope.url=category;
 	
-	$http.get('/AvailableCategories/Providers?category='+category).then(function(response) {       
+	
+	$scope.load=function(){
+			
+		var searchText= document.getElementById("searchText").value;
+		if(searchText==""){
+		$http.get('/AvailableCategories/Providers?category='+category).then(function(response) {       
 			$scope.lists=response.data;
 			
 			});
-	
-	
-	$scope.load=function(){
+		}else{
+			$http.get('/AvailableCategories/SearchProviders?category='+category+'&search='+searchText).then(function(response) {       
+				$scope.lists=response.data;
+				
+				});
+		}
 		
 		$http.get('/AvailableCategories/Category').then(function(response) {       
 			$scope.seekCategorylists=response.data;
@@ -120,6 +128,7 @@ app.controller("needyController", function($scope,$http,$location){
   
   $scope.logout=function(){
 	  localStorage.setItem("email","");
+	 alert("You are successfully logged out");
 	  location.href = '/index.html';
   }
 	

@@ -54,6 +54,24 @@ public class SeekerServiceTest {
 			}
 		
 		
+		@Test
+		public void testFetchSeekersBasedOnSearch() {
+			List<Seeker> ls=new ArrayList<Seeker>();
+			ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food"));
+			SeekerDAO s= mock(SeekerDAO.class);	
+			//Given
+			given(s.fetchSeekersBasedOnSearch("Food","Charlotte")).willReturn(ls);
+			//When
+			ISeekerService st= new SeekerService(s);
+			List<Seeker> data= st.fetchSeekersBasedOnSearch("Food","Charlotte");
+			//Then
+			
+			assertThat(data.size(), is(1));
+			assertEquals(data.get(0).getOrgName(),"UNCCOrg");
+			}
+		
+		
+		
 	}
 	
 

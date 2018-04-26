@@ -16,7 +16,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fpbp.DAO.DonorDAO;
 import com.fpbp.DAO.DonorDAOImpl;
+import com.fpbp.DAO.SeekerDAO;
+import com.fpbp.DAO.SeekerDAOImpl;
 import com.fpbp.model.Donor;
+import com.fpbp.model.Seeker;
 import com.test.fpbp.connection.ConnectionTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -32,9 +35,46 @@ private DataSource dataSource;
     	DataSource ds=ct.getSource();
         JdbcTemplate jt = new JdbcTemplate(ds);
         DonorDAO d=new DonorDAOImpl(ds,jt); 
+        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
+        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCCOrg','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
+	
 		List<Donor> msg =  d.fetchProviders("Food");
-		assertEquals(msg.size(),2);
+		assertEquals(2,msg.size());
+		jt.update("delete from fpbpTest.helpProvider");
 		
         
     }
+    
+    
+    
+	 @Test
+	    public void fetchDonorBasedOnSearch_ValidEntry() {
+	    	
+	    	ConnectionTest ct = new ConnectionTest();
+	    	DataSource ds=ct.getSource();
+	        JdbcTemplate jt = new JdbcTemplate(ds);
+	        
+	        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','ABC Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
+	         DonorDAO d=new DonorDAOImpl(ds,jt); 
+			List<Donor> msg =  d.fetchProvidersBasedOnSearch("Food","ABC Charlotte");
+			assertEquals(msg.size(),1);
+			jt.update("delete from fpbpTest.helpProvider where category='Food' and address='ABC Charlotte'");
+	        
+	    }
+	 
+
+	 @Test
+	    public void fetchDonorBasedOnSearch_InValidEntry() {
+	    	
+	    	ConnectionTest ct = new ConnectionTest();
+	    	DataSource ds=ct.getSource();
+	        JdbcTemplate jt = new JdbcTemplate(ds);
+	        
+	        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','ABC Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
+	         DonorDAO d=new DonorDAOImpl(ds,jt); 
+			List<Donor> msg =  d.fetchProvidersBasedOnSearch("Food","XYZ");
+			assertEquals(msg.size(),0);
+			jt.update("delete from fpbpTest.helpProvider where category='Food' and address='ABC Charlotte'");
+	        
+	    }
 }

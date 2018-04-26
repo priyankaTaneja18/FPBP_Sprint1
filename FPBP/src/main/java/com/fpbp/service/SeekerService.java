@@ -28,5 +28,10 @@ public class SeekerService implements ISeekerService {
 	public boolean addSeeker(Seeker s) {
 		return seekerDAO.addSeeker(s);
 	}
+
+
+	public List<Seeker> fetchSeekersBasedOnSearch(String category, String search) {
+		return seekerDAO.fetchSeekersBasedOnSearch(category,search);
+	}
 	
 }

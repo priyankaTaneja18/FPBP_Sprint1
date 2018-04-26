@@ -83,7 +83,7 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 		String sql = "SELECT count(email) FROM fpbpUsers where email=? ";
 
 		//int result = getJdbcTemplate().queryForObject(sql, new Object[] {email});
-		int result = getJdbcTemplate().queryForObject(sql, Integer.class,new Object[] {email});
+		int result = jdbcTemplate.queryForObject(sql, Integer.class,new Object[] {email});
 
 		if(result == 1)
 		{
@@ -97,7 +97,7 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 			int[] types = new int[] { Types.VARCHAR, Types.VARCHAR};
 
 			try {
-				int row = getJdbcTemplate().update(sql1, params, types);
+				int row = jdbcTemplate.update(sql1, params, types);
 				msg="Account created successfully";
 			}
 			catch(Exception e)

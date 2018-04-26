@@ -1,5 +1,6 @@
 package com.fpbp.DAO;
 
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,19 +36,21 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	private List<Donor> result;
+	
 
 	public List<Donor> fetchProviders(String category) {
 		String sql = "SELECT * FROM helpProvider where Category=?" ;
 		List<Map<String, Object>> rows =jdbcTemplate.queryForList(sql, new Object[] {category});
 				        
-		result = new ArrayList<Donor>();
+		
 		return setDonor(rows);
 	}
 
 
 	private List<Donor> setDonor(List<Map<String, Object>> rows)
 	{
+		List<Donor> result;
+		result = new ArrayList<Donor>();
 		for(Map<String, Object> row:rows){
 			Donor donor = new Donor();            
 			donor.setName(((String)row.get("name")));
@@ -60,6 +63,17 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 		}
 		return result;
 	}
+
+	public List<Donor> fetchProvidersBasedOnSearch(String category, String search) {
+		String sql = "SELECT * FROM helpProvider where Category=? and address like('%"+search+"%')" ;
+		Object[] params = new Object[] {category };
+		int[] types = new int[] { Types.VARCHAR};
+		List<Map<String, Object>> rows =jdbcTemplate.queryForList(sql, params, types);
+		
+		return setDonor(rows);
+	}
+	
+	
 	
 	
 }

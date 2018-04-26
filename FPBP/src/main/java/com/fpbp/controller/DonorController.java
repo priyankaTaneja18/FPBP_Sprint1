@@ -35,5 +35,12 @@ public class DonorController {
 		return donorService.fetchProviders(category);
 	}
 	
+	@RequestMapping(value="/SearchProviders", method= RequestMethod.GET)
+	public List<Donor> fetchProvidersBasedonSearch(@RequestParam("category") String category,@RequestParam("search") String search){
+			
+		return donorService.fetchProvidersBasedOnSearch(category, search);
+	}
+	
+	
 
 }

@@ -26,4 +26,10 @@ public class DonorService implements IDonorService {
 	}
 
 
+	public List<Donor> fetchProvidersBasedOnSearch(String category, String search) {
+		// TODO Auto-generated method stub
+		return donorDAO.fetchProvidersBasedOnSearch(category,search);
+	}
+
+
 }

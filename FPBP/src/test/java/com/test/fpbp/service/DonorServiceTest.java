@@ -35,4 +35,21 @@ public class DonorServiceTest {
 		assertEquals(data.get(0).getName(),"UNCC");
 		}
 	
+	
+	@Test
+	public void testFetchProvidersBasedOnSearch() {
+		List<Donor> ls=new ArrayList<Donor>();
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		DonorDAO s= mock(DonorDAO.class);	
+		//Given
+		given(s.fetchProvidersBasedOnSearch("Education","Charlotte")).willReturn(ls);
+		//When
+		IDonorService st= new DonorService(s);
+		List<Donor> data= st.fetchProvidersBasedOnSearch("Education","Charlotte");
+		//Then
+		
+		assertThat(data.size(), is(1));
+		assertEquals(data.get(0).getName(),"UNCC");
+		}
+	
 }

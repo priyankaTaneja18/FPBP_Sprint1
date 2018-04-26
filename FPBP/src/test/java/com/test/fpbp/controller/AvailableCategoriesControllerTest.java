@@ -52,8 +52,9 @@ public class AvailableCategoriesControllerTest {
 		
 		IAvailableCategoriesService av=mock(AvailableCategoriesService.class);
 		ac.setAvailableCategories(av);
-		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 		when(av.findCategories()).thenReturn(ls);
+		
+		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 		List<String> list=new ArrayList<String>();
 		//When		
 		try {

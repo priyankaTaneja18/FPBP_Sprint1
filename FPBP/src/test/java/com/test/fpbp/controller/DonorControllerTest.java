@@ -59,4 +59,60 @@ public class DonorControllerTest {
 		}
 	}
 
+	
+
+	@Test
+	public void testFetchProvidersBasedonSearch() {
+		List<Donor> ls=new ArrayList<Donor>();
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		
+		ac = new DonorController();
+				
+		IDonorService av=mock(DonorService.class);
+		ac.setDonorService(av);
+		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
+		when(av.fetchProvidersBasedOnSearch("Education","Charlotte")).thenReturn(ls);
+		
+		//When		
+		try {
+			  mockMvc.perform(get("/AvailableCategories/SearchProviders").param("category", "Education").param("search", "Charlotte"))
+					.andExpect(status().isOk())
+					.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+					.andExpect(jsonPath("$", hasSize(1)))
+					.andExpect(jsonPath("$[0].name", is("UNCC")));
+					;
+					
+					
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testFetchProvidersBasedonSearch_InvalidPath() {
+		List<Donor> ls=new ArrayList<Donor>();
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education"));
+		
+		ac = new DonorController();
+				
+		IDonorService av=mock(DonorService.class);
+		ac.setDonorService(av);
+		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
+		when(av.fetchProvidersBasedOnSearch("Education","Charlotte")).thenReturn(ls);
+		
+		//When		
+		try {
+			  mockMvc.perform(get("/AvailableCategories/SearchPro").param("category", "Education").param("search", "Charlotte"))
+					.andExpect(status().is(404));
+					
+					
+					
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
