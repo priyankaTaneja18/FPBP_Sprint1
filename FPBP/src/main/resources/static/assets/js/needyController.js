@@ -6,6 +6,23 @@ app.controller("needyController", function($scope,$http,$location){
 	
 	
 	$scope.load=function(){
+		
+		
+
+		$http.get('/AvailableCategories/Category').then(function(response) {       
+			$scope.seekCategorylists=response.data;
+			
+			});
+		
+		$scope.email=localStorage.getItem("email");
+		
+		if($scope.email==""){
+		
+			document.getElementById("logout").style.visibility = "hidden";
+		}else{
+			
+			document.getElementById("logout").style.visibility = "visible";
+		}
 			
 		var searchText= document.getElementById("searchText").value;
 		if(searchText==""){
@@ -33,9 +50,12 @@ app.controller("needyController", function($scope,$http,$location){
 			});
 		
 		$scope.email=localStorage.getItem("email");
+		
 		if($scope.email==""){
+		
 			document.getElementById("logout").style.visibility = "hidden";
 		}else{
+			
 			document.getElementById("logout").style.visibility = "visible";
 		}
 		}
@@ -144,5 +164,7 @@ app.controller("needyController", function($scope,$http,$location){
 	 alert("You are successfully logged out");
 	  location.href = '/index.html';
   }
+  
+  
 	
 });
