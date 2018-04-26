@@ -22,7 +22,8 @@ app.controller("adminController", function($scope,$http,$location){
 		 }
 	
 	 $scope.logout=function(){
-		  localStorage.setItem("email","");
+		 localStorage.setItem("email","");
+		 alert('Logout Successful!');
 		  location.href = '/index.html';
 	  }
 	 
@@ -53,7 +54,7 @@ app.controller("adminController", function($scope,$http,$location){
 	}
 	 
 	 $scope.deleteSeeker=function(info){
-		 var id= info.id;
+		 var id= info.sid;
 			$scope.successMsg='called';
 			$http({
 					method:"POST",
