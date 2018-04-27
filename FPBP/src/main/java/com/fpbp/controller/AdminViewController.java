@@ -23,8 +23,10 @@ public class AdminViewController {
 		@Autowired
 		private IAdminViewService adminViewService;
 
-		public void setAvailableCategories(IAdminViewService availableCategories) {
-			this.adminViewService = availableCategories;
+		
+
+		public void setAdminViewService(IAdminViewService adminViewService) {
+			this.adminViewService = adminViewService;
 		}
 
 		@RequestMapping(value="/Seeker", method= RequestMethod.GET)
