@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.fpbp.DAO.DonorDAO;
 import com.fpbp.model.Donor;
+import com.fpbp.model.Seeker;
 
 
 @Service
@@ -31,5 +32,9 @@ public class DonorService implements IDonorService {
 		return donorDAO.fetchProvidersBasedOnSearch(category,search);
 	}
 
+
+	public boolean addProvider(Donor d) {
+		return donorDAO.addProvider(d);
+	}
 
 }

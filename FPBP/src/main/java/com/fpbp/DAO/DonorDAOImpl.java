@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import com.fpbp.model.Donor;
+import com.fpbp.model.Seeker;
 
 /*
  * DonorDAOImpl contains methods to fetch the data for each of the available
@@ -73,7 +74,28 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 		return setDonor(rows);
 	}
 	
+
+	public boolean addProvider(Donor d) {
+		
+		String sql = "Insert into fpbp.helpProvider(name,address,contact,email,hours_of_operation, website,Category)"
+				+ "values(?,?,?,?,?,?,?)";
 	
+		
+		   Object[] params = new Object[] {d.getName(),d.getAddress(),d.getContactNo(),d.getEmail(),d.getHoursOfOperation(),d.getWebsite(),d.getCategory() };
+		    // define SQL types of the arguments
+		  int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR };
+		// execute insert query to insert the data
+		      // return number of row / rows processed by the executed query
+		     int row = jdbcTemplate.update(sql, params, types);
+		     System.out.println(row + " row inserted.");
+
+	 if(row==0) {
+		 return false;
+	 }
+		
+		return true;
+		
+	}
 	
 	
 }

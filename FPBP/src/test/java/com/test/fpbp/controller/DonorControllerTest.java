@@ -15,12 +15,18 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fpbp.controller.DonorController;
+import com.fpbp.controller.SeekerController;
 import com.fpbp.model.Donor;
+import com.fpbp.model.Seeker;
 import com.fpbp.service.DonorService;
 import com.fpbp.service.IDonorService;
+import com.fpbp.service.ISeekerService;
+import com.fpbp.service.SeekerService;
 
 public class DonorControllerTest {
 	
@@ -115,4 +121,71 @@ public class DonorControllerTest {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	@Test
+	public void testAddProvider() {
+		
+		Donor ls=new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","9:00am-5:00pm","uncc.com","Food",1);
+		
+		ac = new DonorController();
+				
+		IDonorService av=mock(DonorService.class);
+		ac.setDonorService(av);
+		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
+		when(av.addProvider(ls)).thenReturn(true);
+		String example = "{\"name\":\"UNCC\",\"address\":\"Charlotte\",\"contactNo\":\"980980\",\"email\":\"uncc@uncc.edu\",\"website:\":\"uncc.com\",\"category\":\"Food\"}";
+		//When		
+		try {
+			
+			RequestBuilder requestBuilder = MockMvcRequestBuilders
+					.post("/AvailableCategories/AddProvider")
+					.accept(MediaType.APPLICATION_JSON_UTF8).content(example)
+					.contentType(MediaType.APPLICATION_JSON_UTF8);
+			
+			  mockMvc.perform(requestBuilder)
+					.andExpect(status().isOk());
+					
+					
+					
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+		
+		
+		@Test
+		public void testAddProvider_InvalidPath() {
+			
+			Donor ls=new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","9:00am-5:00pm","uncc.com","Food",1);
+			
+			ac = new DonorController();
+					
+			IDonorService av=mock(DonorService.class);
+			ac.setDonorService(av);
+			mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
+			when(av.addProvider(ls)).thenReturn(true);
+			String example = "{\"name\":\"UNCC\",\"address\":\"Charlotte\",\"contactNo\":\"980980\",\"email\":\"uncc@uncc.edu\",\"website:\":\"uncc.com\",\"category\":\"Food\"}";
+			//When		
+			try {
+				
+				RequestBuilder requestBuilder = MockMvcRequestBuilders
+						.post("/AvailableCategories/AddP")
+						.accept(MediaType.APPLICATION_JSON_UTF8).content(example)
+						.contentType(MediaType.APPLICATION_JSON_UTF8);
+				
+				  mockMvc.perform(requestBuilder)
+						.andExpect(status().is(404));
+						
+						
+						
+						
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
 }
