@@ -77,4 +77,23 @@ private DataSource dataSource;
 			jt.update("delete from fpbpTest.helpProvider where category='Food' and address='ABC Charlotte'");
 	        
 	    }
+	 
+	 
+	 
+
+     @Test
+     public void testAddProvider() {
+         
+         ConnectionTest ct = new ConnectionTest();
+            DataSource ds=ct.getSource();
+            JdbcTemplate jt = new JdbcTemplate(ds);
+            
+            DonorDAO d=new DonorDAOImpl(ds,jt); 
+            jt.update("delete from fpbpTest.helpProvider");
+            Donor s = new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1);
+            boolean msg =  d.addProvider(s);
+            assertEquals(msg,true);
+            jt.update("delete from fpbpTest.helpProvider");
+         
+     }
 }

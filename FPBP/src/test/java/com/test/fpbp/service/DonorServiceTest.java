@@ -3,6 +3,7 @@ package com.test.fpbp.service;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -12,9 +13,13 @@ import java.util.List;
 import org.junit.Test;
 
 import com.fpbp.DAO.DonorDAO;
+import com.fpbp.DAO.SeekerDAO;
 import com.fpbp.model.Donor;
+import com.fpbp.model.Seeker;
 import com.fpbp.service.DonorService;
 import com.fpbp.service.IDonorService;
+import com.fpbp.service.ISeekerService;
+import com.fpbp.service.SeekerService;
 
 
 public class DonorServiceTest {
@@ -50,6 +55,23 @@ public class DonorServiceTest {
 		
 		assertThat(data.size(), is(1));
 		assertEquals(data.get(0).getName(),"UNCC");
+		}
+	
+	
+	@Test
+	public void testAddProvider() {
+		
+		Donor donor=new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1);
+		DonorDAO s= mock(DonorDAO.class);	
+		//Given
+		given(s.addProvider(donor)).willReturn(true);
+		//When
+		IDonorService st= new DonorService(s);
+		boolean data= st.addProvider(donor);
+		//Then
+		
+		assertTrue(data);
+		
 		}
 	
 }
