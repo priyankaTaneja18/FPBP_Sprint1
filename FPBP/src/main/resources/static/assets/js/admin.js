@@ -22,8 +22,7 @@ app.controller("adminController", function($scope,$http,$location){
 		 }
 	
 	 $scope.logout=function(){
-		 localStorage.setItem("email","");
-		 alert('Logout Successful!');
+		  localStorage.setItem("email","");
 		  location.href = '/index.html';
 	  }
 	 

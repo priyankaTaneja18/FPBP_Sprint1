@@ -62,10 +62,9 @@ app.controller("demoCtrl", function($scope,$http,$location){
   
   
   $scope.LoginForm = function () {  
-		$scope.message='';
+		$scope.message='hi';
 		if(  $scope.UserModel.Email == "admin@gmail.com" && $scope.UserModel.Password =="admin@123")
 		{
-			 localStorage.setItem("email",$scope.UserModel.Email);
 			location.href = '/admin.html';
 		}
 		else {
