@@ -79,6 +79,9 @@ app.controller("adminController", function($scope,$http,$location){
 	 
 	 
 	 $scope.addSeeker=function(){
+		 if($scope.seeker.category== null){
+			 alert("Please select the category");
+		 }else{
 			$http({
 					method:"POST",
 					url:'/AvailableCategories/AddSeekerRequirement',
@@ -102,14 +105,17 @@ app.controller("adminController", function($scope,$http,$location){
 				alert(response.data);
 				location.href = '/admin.html';
 			});
-			
+		 }
 			
 	}
 	 
 	 
 	 $scope.addProvider=function(){
-		 alert($scope.provider.category)
-		 
+		 //alert($scope.provider.category)
+		 if($scope.provider.category == null){
+			 alert("Please select the category");
+		 }
+		 else{	 
 			$http({
 					method:"POST",
 					url:'/AvailableCategories/AddProvider',
@@ -133,6 +139,6 @@ app.controller("adminController", function($scope,$http,$location){
 				location.href = '/admin.html';
 			});
 		 }
-	
+	 }
 	 
 });
