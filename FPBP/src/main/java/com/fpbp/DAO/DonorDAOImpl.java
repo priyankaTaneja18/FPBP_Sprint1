@@ -85,17 +85,20 @@ public class DonorDAOImpl extends JdbcDaoSupport implements DonorDAO{
 		    // define SQL types of the arguments
 		  int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR };
 		// execute insert query to insert the data
-		      // return number of row / rows processed by the executed query
-		     int row = jdbcTemplate.update(sql, params, types);
+		   
+		 // return number of row / rows processed by the executed query
+		 try {
+		  
+		  int row = jdbcTemplate.update(sql, params, types);
 		     System.out.println(row + " row inserted.");
-
-	 if(row==0) {
-		 return false;
-	 }
-		
-		return true;
-		
+		     if(row==1)
+		    	 return true;
+		     else
+		    	 return false;
+		 }
+		 catch(Exception e) {
+			return false; 
+		 }
 	}
-	
 	
 }

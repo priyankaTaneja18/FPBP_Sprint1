@@ -45,6 +45,19 @@ public class SeekerDaoTest {
          
      }
      
+     @Test
+     public void testAddSeekerInvalid() {
+         
+         ConnectionTest ct = new ConnectionTest();
+            DataSource ds=ct.getSource();
+            JdbcTemplate jt = new JdbcTemplate(ds);
+            jt.update("delete from fpbpTest.helpSeeker");
+            SeekerDAO d=new SeekerDAOImpl(ds,jt); 
+            Seeker s = new Seeker("PriTest","Charlotte","980980","uncc.com","uncc@uncc.edu","Rice",50,"hfh",2);
+            boolean msg =  d.addSeeker(s);
+            assertEquals(msg,false);
+         
+     }
      
      
      @Test

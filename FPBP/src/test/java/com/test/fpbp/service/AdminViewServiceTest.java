@@ -38,6 +38,24 @@ public class AdminViewServiceTest {
 	}
 
 	@Test
+	public void testFindSeekersInvalid() {
+		
+		AdminViewDAO adminViewDAO= mock(AdminViewDAO.class);    
+		List<Seeker> ls=new ArrayList<Seeker>();
+		//ls.add(new Seeker());
+		
+	        //Given
+	        given(adminViewDAO.findSeekers()).willReturn(ls);
+	        //When
+	        IAdminViewService avs= new AdminViewService(adminViewDAO);
+	        List<Seeker> data= avs.findSeekers();
+	        //Then
+	     
+	        assertEquals(0,data.size());
+	       
+	}
+
+	@Test
 	public void testFindDonors() {
 		
 		AdminViewDAO adminViewDAO= mock(AdminViewDAO.class);    
@@ -52,6 +70,24 @@ public class AdminViewServiceTest {
 	        //Then
 	        assertEquals("UNCC",data.get(0).getName());
 	        assertEquals(1,data.size());
+	       
+	}
+	
+	@Test
+	public void testFindDonorsInvalid() {
+		
+		AdminViewDAO adminViewDAO= mock(AdminViewDAO.class);    
+		List<Donor> ls=new ArrayList<Donor>();
+		//ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
+		
+	        //Given
+	        given(adminViewDAO.findDonor()).willReturn(ls);
+	        //When
+	        IAdminViewService avs= new AdminViewService(adminViewDAO);
+	        List<Donor> data= avs.findDonor();
+	        //Then
+	        
+	        assertEquals(0,data.size());
 	       
 	}
 
@@ -69,6 +105,22 @@ public class AdminViewServiceTest {
 	        boolean data= avs.deleteSeekers(1,"helpProvider" );
 	        //Then
 	        assertEquals(true,data);
+	}
+	
+	@Test
+	public void testDeleteSeekersInvalid() {
+		
+		AdminViewDAO adminViewDAO= mock(AdminViewDAO.class);    
+		List<Donor> ls=new ArrayList<Donor>();
+		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
+		
+	        //Given
+	        given(adminViewDAO.deleteSeekers(1, "helpProvider")).willReturn(false);
+	        //When
+	        IAdminViewService avs= new AdminViewService(adminViewDAO);
+	        boolean data= avs.deleteSeekers(1,"helpProvider" );
+	        //Then
+	        assertEquals(false,data);
 	}
 	
 	
