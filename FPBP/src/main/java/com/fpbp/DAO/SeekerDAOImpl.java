@@ -80,17 +80,19 @@ public class SeekerDAOImpl extends JdbcDaoSupport implements SeekerDAO {
 		  int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.INTEGER,Types.VARCHAR };
 		// execute insert query to insert the data
 		      // return number of row / rows processed by the executed query
+		  try {
 		     int row = jdbcTemplate.update(sql, params, types);
 		     System.out.println(row + " row inserted.");
 
-	 if(row==0) {
-		 return false;
-	 }
-		
-		return true;
-		
+		     if(row==1)
+		    	 return true;
+		     else
+		    	 return false;
+		 }
+		 catch(Exception e) {
+			return false; 
+		 }
 	}
-
 	public List<Seeker> fetchSeekersBasedOnSearch(String category, String search) {
 		String sql = "SELECT * FROM helpSeeker where Category=? and address like('%"+search+"%')";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, new Object[] {category});        

@@ -96,4 +96,20 @@ private DataSource dataSource;
             jt.update("delete from fpbpTest.helpProvider");
          
      }
+     
+     @Test
+     public void testAddProviderInvalid() {
+         
+         ConnectionTest ct = new ConnectionTest();
+            DataSource ds=ct.getSource();
+            JdbcTemplate jt = new JdbcTemplate(ds);
+            
+            DonorDAO d=new DonorDAOImpl(ds,jt); 
+            jt.update("delete from fpbpTest.helpProvider");
+            Donor s = new Donor("UNCC","Charlotte","98099990","uncc@uncc.edu","5days","uncc.com","wtretqrw",1);
+            boolean msg =  d.addProvider(s);
+            assertEquals(msg,false);
+            jt.update("delete from fpbpTest.helpProvider");
+         
+     }
 }

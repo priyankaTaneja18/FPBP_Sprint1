@@ -1,9 +1,7 @@
 package com.test.fpbp.service;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -59,6 +57,23 @@ public class DonorServiceTest {
 	
 	
 	@Test
+	public void testFetchProvidersBasedOnSearchInvalid() {
+		List<Donor> ls=new ArrayList<Donor>();
+	
+		DonorDAO s= mock(DonorDAO.class);	
+		//Given
+		given(s.fetchProvidersBasedOnSearch("Education","Charlotte")).willReturn(ls);
+		//When
+		IDonorService st= new DonorService(s);
+		List<Donor> data= st.fetchProvidersBasedOnSearch("Education","Charlotte");
+		//Then
+		
+		assertThat(data.size(), is(0));
+		//assertEquals(data.get(0).getName(),"UNCC");
+		}
+	
+	
+	@Test
 	public void testAddProvider() {
 		
 		Donor donor=new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1);
@@ -71,6 +86,22 @@ public class DonorServiceTest {
 		//Then
 		
 		assertTrue(data);
+		
+		}
+	
+	@Test
+	public void testAddProviderInvalid() {
+		
+		Donor donor=new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1);
+		DonorDAO s= mock(DonorDAO.class);	
+		//Given
+		given(s.addProvider(donor)).willReturn(false);
+		//When
+		IDonorService st= new DonorService(s);
+		boolean data= st.addProvider(donor);
+		//Then
+		
+		assertFalse(data);
 		
 		}
 	

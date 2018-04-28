@@ -86,7 +86,7 @@ app.controller("adminController", function($scope, $http, $location) {
 				},
 
 			}).then(function(response) {
-				alert("Row deleted Successfully")
+				//alert("Row deleted Successfully")
 				if (response.data == true) {
 
 					$http.get('/AdminView/Seeker').then(function(response) {
