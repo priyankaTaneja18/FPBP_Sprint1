@@ -80,11 +80,15 @@ tr:nth-child(even) {
 	background-color: #f2f2f2
 }
 </style>
-
+<script type="text/javascript">
+window.history.forward();
+function noBack() { 
+	window.history.forward(); }
+</script>
 
 </head>
 
-<body ng-controller="adminController">
+<body ng-controller="adminController" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
 	<div
 		class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
 		<div class="nano">

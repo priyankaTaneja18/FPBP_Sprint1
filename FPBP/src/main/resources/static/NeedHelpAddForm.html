@@ -39,7 +39,12 @@
 	
 	<script src="assets/js/needyController.js"></script>
 	
-<body ng-controller="needyController">
+	<script type="text/javascript">
+window.history.forward();
+function noBack() { 
+	window.history.forward(); }
+</script>
+<body ng-controller="needyController" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
 <div ng-init="load()"></div>
 	<div class="flex-container" >
 		<header class="main-header">
