@@ -36,6 +36,7 @@ public class AdminViewDAOTest {
         jt.update("Insert into fpbpTest.helpSeeker(org_name,address,contact_no,website,email,requirement, quantity,Category) values('UNCCOrg','Charlotte','980980','uncc.com','uncc@c.com','Food',50,'Food')");
         List<Seeker> msg =  d.findSeekers();
         assertEquals(msg.size(),2);
+        assertEquals("UNCC",msg.get(0).getOrgName());
         jt.update("delete from fpbpTest.helpSeeker");
 	}
 
@@ -98,11 +99,11 @@ public class AdminViewDAOTest {
         JdbcTemplate jt = new JdbcTemplate(ds);
         AdminViewDAO d=new AdminViewDAOImpl(ds,jt); 
         jt.update("delete from fpbpTest.helpProvider");
-        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
-        jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCCOrg','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
-	
+       // jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCC','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
+        //jt.update("Insert into fpbpTest.helpProvider(name,address,contact,email,hours_of_operation,website,Category) values('UNCCOrg','Charlotte','980980','uncc@c.com','9:00AM-5:00PM','uncc.com','Food')");
 		List<Donor> msg =  d.findDonor();
-		assertEquals(2,msg.size());
+		assertEquals(0,msg.size());
+		
 		jt.update("delete from fpbpTest.helpProvider");
 	
 	}

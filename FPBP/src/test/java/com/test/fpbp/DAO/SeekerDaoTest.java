@@ -69,6 +69,7 @@ public class SeekerDaoTest {
             Seeker s = new Seeker("PriTest","Charlotte","980980","uncc.com","uncc@uncc.edu","Rice",50,"hfh",2);
             boolean msg =  d.addSeeker(s);
             assertEquals(msg,false);
+            jt.update("delete from fpbpTest.helpSeeker");
          
      }
      
@@ -84,6 +85,7 @@ public class SeekerDaoTest {
             SeekerDAO d=new SeekerDAOImpl(ds,jt); 
             List<Seeker> msg =  d.fetchSeekersBasedOnSearch("Food","ABC Charlotte");
             assertEquals(msg.size(),1);
+            assertEquals("UNCC",msg.get(0).getOrgName());
             jt.update("delete from fpbpTest.helpSeeker");
             
         }

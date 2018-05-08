@@ -46,6 +46,14 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 <script src="assets/js/admin.js"></script>
+<!-- <script>
+    $(document).ready(function() {
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+    });
+</script> -->
 <!-- Fonts -->
 <!-- <link
     href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700'
@@ -80,6 +88,7 @@ tr:nth-child(even) {
 	background-color: #f2f2f2
 }
 </style>
+
 <script type="text/javascript">
 window.history.forward();
 function noBack() { 
