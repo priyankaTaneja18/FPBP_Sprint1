@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html ng-app="demoApp" class="no-js">
     <head>
         <meta charset="utf-8">
         <title>Contact | Charity / Non-profit responsive Bootstrap HTML5 template</title>
@@ -21,10 +21,17 @@
         
         <!-- Modernizr -->
         <script src="assets/js/modernizr-2.6.2.min.js"></script>
+			<script
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')</script>
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 
+		<script src="assets/js/controller.js"></script>
 
     </head>
-    <body>
+    <body ng-controller="demoCtrl">
+    <div ng-init="load()"></div>
     <!-- NAVBAR
     ================================================== -->
 
@@ -46,12 +53,9 @@
                        </ul> <!-- /.header-contact  -->
                       
                     </div>
-
-                    <div class="col-sm-6 col-xs-12 text-right">
-
-                      
-                    </div>
-
+					<div align="right" -webkit-order=2><b>{{email}}</b>
+	 			  &nbsp;&nbsp;&nbsp;<a id="logout" ng-click="logout()">Logout</a></div>
+                   
 
                   </div>
               </div>
@@ -85,9 +89,7 @@
               
                     <li><a href="gallery.html">GALLERY</a></li>
                     <li><a class="is-active"  href="contact.html">CONTACT US</a></li>
-                    <li><a href="#" ng-click="haveLoggedInBefore()" data-toggle="modal" data-target="{{'#'+value}}">SIGN UP | SIGN IN</a></li>
-					
-
+                    
                   </ul>
 
                 </div> <!-- /#navbar -->

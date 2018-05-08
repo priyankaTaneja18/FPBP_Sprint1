@@ -5,8 +5,11 @@ app.controller("demoCtrl", function($scope,$http,$location){
 		$scope.email=localStorage.getItem("email");
 		if($scope.email==""){
 			document.getElementById("logout").style.visibility = "hidden";
+			document.getElementById("signInUP").style.visibility = "visible";
+			
 		}else{
 			document.getElementById("logout").style.visibility = "visible";
+			document.getElementById("signInUP").style.visibility = "hidden";
 		}
 	}
 	$scope.Category=function(){

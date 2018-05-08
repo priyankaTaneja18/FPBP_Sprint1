@@ -8,6 +8,11 @@ import com.fpbp.model.Donor;
 
 public class DonorTest {
 	
+	/* testing Donor constructor
+	 * No need for creating mock up as there is no dependency
+	 * Provide dummy values in Donor Constructor
+	 * Verify them using getter method
+	 */
 	@Test
 	public void testDonorConstructor() {
 		Donor d=new Donor("UNCC","Charlotte","980980","uncc@unn.edu","5Days","","Food",1);

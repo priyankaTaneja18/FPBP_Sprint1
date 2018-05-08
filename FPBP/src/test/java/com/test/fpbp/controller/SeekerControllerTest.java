@@ -31,10 +31,16 @@ public class SeekerControllerTest {
 	private MockMvc mockMvc;
 	private SeekerController ac;
 		
-	
+	/*Controller has dependency on SeekerService from service layer
+	*Thus a mock for service class is created
+	*When user hits the correct url i.e. when get request is made, corresponding method is invoked
+	*This method further calls the method of service layer which is returning array list of Seekers 
+	* Our mock object returns this arrayList 
+	*/
 	@Test
 	public void testFetchSeekers() {
 		List<Seeker> ls=new ArrayList<Seeker>();
+		//Given - created 
 		ls.add(new Seeker("UNCCOrg","Charlotte","980980","uncc.com","uncc@uncc.edu","Food",50,"Food",1));
 		
 		ac = new SeekerController();
@@ -44,16 +50,15 @@ public class SeekerControllerTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 		when(av.fetchSeekers("Food")).thenReturn(ls);
 		
-		//When		
+		//When get request is made with correct URL
+		//Expects verify the result retrieved- thus verifying the correct function invoked 
+		//and verifying the output values.
 		try {
 			  mockMvc.perform(get("/AvailableCategories/Seeker").param("category", "Food"))
 					.andExpect(status().isOk())
 					.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 					.andExpect(jsonPath("$", hasSize(1)))
-					.andExpect(jsonPath("$[0].orgName", is("UNCCOrg")));
-					
-					
-					
+					.andExpect(jsonPath("$[0].orgName", is("UNCCOrg")));		
 					
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

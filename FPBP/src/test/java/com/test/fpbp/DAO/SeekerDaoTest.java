@@ -12,7 +12,10 @@ import com.fpbp.model.Seeker;
 import com.test.fpbp.connection.ConnectionTest;
 public class SeekerDaoTest {
 
-    
+    /*DAO has no dependency of anyother class accept Connection
+     *Test DAO is pointing to Test Database
+     *No mock is needed
+     */
      @Test
         public void testFetchSeekers() {
             
@@ -20,11 +23,21 @@ public class SeekerDaoTest {
             DataSource ds=ct.getSource();
             JdbcTemplate jt = new JdbcTemplate(ds);
             SeekerDAO d=new SeekerDAOImpl(ds,jt); 
+            //Given
+            //Delete the database intially
             jt.update("delete from fpbpTest.helpSeeker");
-            jt.update("Insert into fpbpTest.helpSeeker(org_name,address,contact_no,website,email,requirement, quantity,Category) values('UNCC','Charlotte','980980','uncc.com','uncc@c.com','Rice',50,'Food')");
-            jt.update("Insert into fpbpTest.helpSeeker(org_name,address,contact_no,website,email,requirement, quantity,Category) values('UNCCOrg','Charlotte','980980','uncc.com','uncc@c.com','Food',50,'Food')");
+            //Insert the values in the table
+            jt.update("Insert into fpbpTest.helpSeeker(org_name,address,contact_no,website,email,requirement, quantity,Category) "
+            		+ "values('UNCC','Charlotte','980980','uncc.com','uncc@c.com','Rice',50,'Food')");
+            jt.update("Insert into fpbpTest.helpSeeker(org_name,address,contact_no,website,email,requirement, quantity,Category) "
+            		+ "values('UNCCOrg','Charlotte','980980','uncc.com','uncc@c.com','Food',50,'Food')");
+            //When
             List<Seeker> msg =  d.fetchSeekers("Food");
+            //Verify
             assertEquals(msg.size(),2);
+            assertEquals("UNCC",msg.get(0).getOrgName());
+            
+            //Post verification: empty the database
             jt.update("delete from fpbpTest.helpSeeker");
             
             

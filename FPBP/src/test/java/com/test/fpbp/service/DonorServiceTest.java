@@ -38,39 +38,47 @@ public class DonorServiceTest {
 		assertEquals(data.get(0).getName(),"UNCC");
 		}
 	
-	
+	/*
+	 * Testing Donor Service method Service is dependent upon DAO class object Thus,
+	 * we need to mock DAO object which will return an arrayList of Donors when DAO
+	 * method is invoked Verify the size of arrayList and its value
+	 */
 	@Test
 	public void testFetchProvidersBasedOnSearch() {
-		List<Donor> ls=new ArrayList<Donor>();
-		ls.add(new Donor("UNCC","Charlotte","980980","uncc@uncc.edu","5days","uncc.com","Education",1));
-		DonorDAO s= mock(DonorDAO.class);	
-		//Given
-		given(s.fetchProvidersBasedOnSearch("Education","Charlotte")).willReturn(ls);
-		//When
-		IDonorService st= new DonorService(s);
-		List<Donor> data= st.fetchProvidersBasedOnSearch("Education","Charlotte");
-		//Then
-		
+		List<Donor> ls = new ArrayList<Donor>();
+		ls.add(new Donor("UNCC", "Charlotte", "980980", "uncc@uncc.edu", "5days", "uncc.com", "Education", 1));
+		DonorDAO s = mock(DonorDAO.class);
+		// Given
+		given(s.fetchProvidersBasedOnSearch("Education", "Charlotte")).willReturn(ls);
+		// When
+		IDonorService st = new DonorService(s);
+		List<Donor> data = st.fetchProvidersBasedOnSearch("Education", "Charlotte");
+		// Then
+
 		assertThat(data.size(), is(1));
-		assertEquals(data.get(0).getName(),"UNCC");
-		}
-	
-	
+		assertEquals(data.get(0).getName(), "UNCC");
+	}
+
+	/*
+	 * testing the invalid scenario DAO will not return empty arrayList if matching
+	 * address is not found Thus mock of DAO is returning the empty list for testing
+	 * invalid case
+	 */
 	@Test
 	public void testFetchProvidersBasedOnSearchInvalid() {
-		List<Donor> ls=new ArrayList<Donor>();
-	
-		DonorDAO s= mock(DonorDAO.class);	
-		//Given
-		given(s.fetchProvidersBasedOnSearch("Education","Charlotte")).willReturn(ls);
-		//When
-		IDonorService st= new DonorService(s);
-		List<Donor> data= st.fetchProvidersBasedOnSearch("Education","Charlotte");
-		//Then
-		
+		List<Donor> ls = new ArrayList<Donor>();
+
+		DonorDAO s = mock(DonorDAO.class);
+		// Given
+		given(s.fetchProvidersBasedOnSearch("Education", "Charlotte")).willReturn(ls);
+		// When
+		IDonorService st = new DonorService(s);
+		List<Donor> data = st.fetchProvidersBasedOnSearch("Education", "Charlotte");
+		// Then
+
 		assertThat(data.size(), is(0));
-		//assertEquals(data.get(0).getName(),"UNCC");
-		}
+		// assertEquals(data.get(0).getName(),"UNCC");
+	}
 	
 	
 	@Test
